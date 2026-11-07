@@ -1,0 +1,76 @@
+/*
+ * Добавки к hb-kab.css для страниц группы 6-2 (админка, /admin/closer-admission/[id] ... /admin/library/telegram-prices).
+ * Источник: gruppa-6-2.css макетов. Все селекторы под корнем `:where(.hb)`. Кандидаты в расширение кита
+ * (README-6-2.md, «Свой CSS»); пока их там нет, живут отдельным файлом, как hb-kab-6-1.css.
+ */
+
+/* 1. Редактор ячейки (поле и две кнопки) в карточке .tbl--stack на телефоне шире строки: кнопки переносятся под поле. */
+@media (max-width: 639px) {
+  :where(.hb) .tbl--stack .cell:has(> .input) { flex-wrap: wrap; }
+}
+
+/* 2. Список слева и содержимое справа (правила страны, автообновление цен): на узком экране содержимое уходит под список. */
+:where(.hb) .split { display: flex; flex-wrap: wrap; gap: 24px; }
+:where(.hb) .split > :first-child { flex: 1 1 200px; min-width: 0; }
+:where(.hb) .split > :last-child { flex: 999 1 300px; min-width: 0; }
+
+/* 3. Карточка-кнопка (канбан обращений, кандидат в разборе переписок, раскрывающиеся строки): текст слева, как у article.panel. */
+:where(.hb) .board button.panel, :where(.hb) button.panel.stack { text-align: left; align-items: stretch; font: inherit; color: inherit; cursor: pointer; }
+
+/* 4. Широкая таблица (поступления комиссии, лиды сайта): отступ ячеек 12 px; перенос заголовков даёт .tbl--wrap-head из hb-kab-6-1.css. */
+:where(.hb) .tbl--wrap-head :is(th, td) { padding-inline: 12px; }
+
+/* 5. Таблица лидов сайта: телефон не переносится. */
+:where(.hb) .tbl--nowrap-phone td[data-label="Телефон"] { white-space: nowrap; }
+
+/* Многострочный текст правила и журнала: переводы строк хранятся в значении и должны доехать до глаз. */
+:where(.hb) .pre-line { white-space: pre-line; overflow-wrap: anywhere; }
+
+/* Список коротких пунктов в форме (главное, риски): поле в .cell занимает остаток строки, а не 9em ячейки таблицы. */
+:where(.hb) .stack--s > .cell > .input { flex: 1; width: auto; }
+/* строка таблицы открывает карточку по щелчку в любом месте (клавиатуре служит кнопка с именем в первой ячейке) */
+:where(.hb) .tbl tr.is-open { cursor: pointer; }
+:where(.hb) .tbl tr.is-open:hover > td { background: var(--hb-sunken); }
+
+/* Подпись-тревога в строке таблицы: разговор без исполнителя, просьба о живом человеке (требование владельца 15.09.2026: не терять красный сигнал). */
+:where(.hb) .t-err { color: var(--hb-err); }
+/* Обёртка страницы админки (AdminKitPage) внутри колонки .kab__main оболочки: детям остаётся её сетка и зазор. */
+:where(.hb) .kab__page { display: contents; }
+
+/* Широкая таблица лидов (аудит экранов 05.11.2026): в прокручиваемой рамке последняя колонка действий («Удалить лид»,
+   «Не спам, отправить») прилипает к правому краю и остаётся под рукой, а не уезжает за край вместе с прокруткой.
+   Только таблица на экране: на телефоне (<640) строки складываются в карточки, и колонка стоит в карточке как есть. */
+@media (min-width: 640px) {
+  :where(.hb) .tbl--act-sticky :is(th, td):last-child { position: sticky; right: 0; z-index: 1; background: var(--hb-paper); box-shadow: inset 1px 0 var(--hb-line); }
+  :where(.hb) .tbl--act-sticky thead th:last-child { background: var(--hb-sunken); }
+  :where(.hb) .tbl--act-sticky tbody tr:hover td:last-child { background: color-mix(in srgb, var(--hb-sunken) 50%, var(--hb-paper)); } /* непрозрачно: липкая ячейка закрывает уехавшие */
+}
+
+/* Карточка на телефоне: имя клиента в строке агентских лидов (кнопка без переноса) раздувало дорожку сетки шире экрана,
+   и «Удалить лид» уезжал за край. Дорожка не шире рамки, длинное имя переносится. */
+@media (max-width: 639px) {
+  :where(.hb) .tbl--act-sticky tbody { grid-template-columns: minmax(0, 1fr); }
+  :where(.hb) .tbl--act-sticky td > .btn { white-space: normal; max-width: 100%; text-align: end; }
+}
+
+/* Дата строки не переносится по словам («16 окт. 2026 г.» на четыре строки в узкой колонке). */
+:where(.hb) .tbl--nowrap-date td[data-label="Дата"] { white-space: nowrap; }
+
+/* Группа в строке инструментов (.tbar__grp): поле и его кнопка не разрываются переносом (панель «Заявки на подключение»);
+   на телефоне группа переносит свои части сама. */
+@media (min-width: 900px) { :where(.hb) .tbar__grp { display: inline-flex; align-items: center; flex-wrap: nowrap; gap: 8px 12px; } }
+
+/* Панель действий .actbar (решение владельца 05.11.2026): группа кнопок ВСЕГДА стоит своей строкой под заголовком или
+   шапкой блока, на любой ширине, а не пробует уместиться рядом с заголовком и рваться посередине. Внутри строки кнопки
+   идут подряд слева и переносятся целыми кнопками. Тот же приём для шапки страницы: .phead__row--own даёт .phead__acts
+   всю строку под .phead__main (AdminKitHead и HbPageHead, свойство actsOwnRow). Остальные .phead__row и .tbar не меняются.
+   На телефоне: до 479 кнопка на всю ширину столбиком, 480-899 кнопки делят строку по ширине подписи. */
+:where(.hb) :is(.actbar, .phead__row--own > .phead__acts) { display: flex; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 8px; flex: 1 1 100%; width: 100%; min-width: 0; }
+:where(.hb) .phead__row--own { justify-content: flex-start; }
+:where(.hb) .actbar > :is(.seg, .chips) { max-width: 100%; }
+@media (max-width: 899px) {
+  :where(.hb) :is(.actbar, .phead__row--own > .phead__acts) > .btn:not(.btn--icon) { flex: 1 1 auto; min-height: var(--hb-h-touch); }
+}
+@media (max-width: 479px) { /* .btn.btn: вес выше «1 1 auto» из hb-kab-raskladka.css, подключённого позже */
+  :where(.hb) :is(.actbar, .phead__row--own > .phead__acts) > .btn.btn:not(.btn--icon) { flex: 1 1 100%; }
+}

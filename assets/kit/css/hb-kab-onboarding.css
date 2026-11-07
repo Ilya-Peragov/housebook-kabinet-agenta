@@ -1,0 +1,69 @@
+/*
+ * Блоки онбординга агента (вариант Б макета «Онбординг агента», план `onboarding-card`): полоса этапов и шкала
+ * дней (`.ostage`, `.otrack`, `.otick`), плитки каналов (`.chans`, `.chan`), будущее касание в ленте
+ * (`.tev--plan`), полоса долей над пилюлями списка (`.dbar`) и красное число у пилюли очереди действий
+ * (`.pill--alert`). Источник - блок «Новые блоки варианта Б» макета `.maket/variant-b.html`, значения только из
+ * токенов кита, новых цветов нет, «Сумерки» работают сами. Файл ручной: `hb.css` и `hb-kab.css` сгенерированы и не
+ * правятся. Подключается в `HbKabRoot` ПОСЛЕ `hb-kab-lead.css`: `.tev--plan` равен по весу `.tev--wa` и
+ * побеждает порядком. Модификаторы `tev--plan` и `pill--alert` включаются только явно, остальные экраны не
+ * затронуты. React-обёртки: `src/components/hb/onboarding-parts.tsx` (HbStageBar, HbChannelTiles, HbShareBar) и
+ * значение `plan` у `HbTimelineEvent` в `lead-parts.tsx`.
+ */
+
+/* 1. Полоса этапов HbStageBar: три сегмента, текущий подсвечен, пройденные с галочкой; под ней шкала дней расписания */
+:where(.hb) .ostage { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+:where(.hb) .ostage > li { display: flex; align-items: center; gap: 10px; min-width: 0; padding: 10px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); color: var(--hb-ink-3); }
+:where(.hb) .ostage__n { display: grid; place-items: center; flex: none; width: 24px; height: 24px; border-radius: 50%; background: var(--hb-sunken); font: 600 var(--hb-fs-cap)/1 var(--font-ui); color: var(--hb-ink-3); }
+:where(.hb) .ostage__t { display: grid; min-width: 0; flex: 1 1 auto; }
+:where(.hb) .ostage__t b { overflow-wrap: anywhere; font-size: var(--hb-fs-small); line-height: 18px; font-weight: 600; color: var(--hb-ink-2); }
+:where(.hb) .ostage__t small { font-size: var(--hb-fs-min); line-height: 16px; color: var(--hb-ink-3); }
+:where(.hb) .ostage > .is-done { background: var(--hb-sunken); }
+:where(.hb) .ostage > .is-done .ostage__n { background: var(--hb-accent); color: var(--hb-on-accent); }
+:where(.hb) .ostage > [aria-current="step"] { border-color: var(--hb-sel-bd); background: var(--hb-sel-bg); }
+:where(.hb) .ostage > [aria-current="step"] .ostage__n { background: var(--hb-accent); color: var(--hb-on-accent); }
+:where(.hb) .ostage > [aria-current="step"] .ostage__t b { color: var(--hb-ink); }
+:where(.hb) .ostage > .is-stop { border-color: var(--hb-err); background: color-mix(in srgb, var(--hb-err) 6%, var(--hb-paper)); }
+:where(.hb) .ostage > .is-stop .ostage__n { background: var(--hb-err); color: var(--hb-on-accent); }
+:where(.hb) .ostage > .is-off { border-style: dashed; background: none; }
+:where(.hb) .otrack { display: grid; gap: 4px; }
+:where(.hb) .otrack__bar { position: relative; height: 8px; margin: 4px 6px 0; border-radius: var(--hb-r-pill); background: var(--hb-sunken); }
+:where(.hb) .otrack__bar > i { position: absolute; inset: 0 auto 0 0; border-radius: var(--hb-r-pill); background: var(--hb-accent); }
+:where(.hb) .otick { position: absolute; top: 50%; width: 12px; height: 12px; margin: -6px 0 0 -6px; border: 2px solid var(--hb-control); border-radius: 50%; background: var(--hb-paper); }
+:where(.hb) .otick.is-done { border-color: var(--hb-accent); background: var(--hb-accent); }
+:where(.hb) .otick.is-next { border-color: var(--hb-accent); }
+:where(.hb) .otrack__n { position: relative; height: 16px; margin: 0 6px; font-size: var(--hb-fs-min); line-height: 16px; color: var(--hb-ink-3); }
+:where(.hb) .otrack__n > span { position: absolute; transform: translateX(-50%); white-space: nowrap; }
+:where(.hb) .otrack__n > span:last-child { transform: translateX(-100%); }
+:where(.hb) .otrack__n > span:first-child { transform: none; }
+@media (max-width: 640px) { :where(.hb) .ostage { grid-template-columns: minmax(0, 1fr); } }
+/* 2. Плитки каналов HbChannelTiles: четыре канала в ряд, у каждого значок, имя, состояние словами; сбой подсвечен как у события ленты */
+:where(.hb) .chans { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; margin: 0; padding: 0; list-style: none; }
+:where(.hb) .chan { display: flex; align-items: flex-start; gap: 10px; min-width: 0; padding: 10px 12px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-paper); }
+:where(.hb) .chan > .ic { margin-top: 1px; color: var(--hb-accent-text); }
+:where(.hb) .chan > span { display: grid; min-width: 0; }
+:where(.hb) .chan b { font-size: var(--hb-fs-small); line-height: 18px; font-weight: 600; color: var(--hb-ink); }
+:where(.hb) .chan small { font-size: var(--hb-fs-min); line-height: 16px; color: var(--hb-ink-3); overflow-wrap: anywhere; }
+:where(.hb) .chan--muted > .ic, :where(.hb) .chan--off > .ic { color: var(--hb-ink-3); }
+:where(.hb) .chan--off { border-style: dashed; }
+:where(.hb) .chan--err { border-color: color-mix(in srgb, var(--hb-err) 45%, transparent); background: color-mix(in srgb, var(--hb-err) 6%, var(--hb-paper)); }
+:where(.hb) .chan--err > .ic, :where(.hb) .chan--err small { color: var(--hb-err); }
+@media (max-width: 899px) { :where(.hb) .chans { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* 3. Будущее касание в ленте: к HbTimelineEvent добавляется окраска plan (пунктир), старые окраски не меняются */
+:where(.hb) .tev--plan .tev__i { background: none; border: 1.5px dashed var(--hb-control); color: var(--hb-ink-3); }
+:where(.hb) .tev--plan .tev__c { border-style: dashed; background: none; }
+/* 4. Фильтры списка: полоса долей по этапам и модификатор pill--alert (красное число у «ждёт действия»); оба включаются только явно */
+:where(.hb) .dbar { display: flex; gap: 2px; height: 8px; }
+:where(.hb) .dbar > i { display: block; min-width: 4px; border-radius: var(--hb-r-pill); }
+:where(.hb) .dbar__a { background: var(--hb-warn); } :where(.hb) .dbar__b { background: var(--hb-accent); } :where(.hb) .dbar__c { background: var(--hb-jade); } :where(.hb) .dbar__d { background: var(--hb-line); }
+:where(.hb) .pill--alert .pill__n { padding: 1px 7px; border-radius: var(--hb-r-pill); background: var(--hb-err); color: var(--hb-on-accent); }
+
+/* Ряды чипов автоматического онбординга в списке агентов: без --scroll, чипы переносятся на новую строку (.chips кита), поэтому видны все на любой ширине. */
+/* Вертикальный ритм группы как в макете (.mk-fgroup): 8px (--hb-sp-2) между подписью, полосой долей, рядом чипов и пояснением; вторая подпись отделена от первого ряда на 12px (--hb-sp-3, шаг .stack между группами фильтров: 8 + 4 сверху). */
+:where(.hb) [data-guide="admin.partners.filters.onboarding-auto"] { display: grid; gap: var(--hb-sp-2); min-width: 0; max-width: 100%; }
+:where(.hb) [data-guide="admin.partners.filters.onboarding-auto"] > * { min-width: 0; margin: 0; }
+:where(.hb) [data-guide="admin.partners.filters.onboarding-auto"] > .chips + .eyebrow { margin-top: var(--hb-sp-1); }
+/* Подпись с пояснением: как .mk-fgroup .eyebrow в макете, пояснение обычным шрифтом. */
+:where(.hb) [data-guide="admin.partners.filters.onboarding-auto"] > .eyebrow { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--hb-sp-1) 10px; }
+:where(.hb) [data-guide="admin.partners.filters.onboarding-auto"] > .eyebrow .note { font-family: var(--font-ui); font-weight: 400; letter-spacing: 0; text-transform: none; }
+/* Кнопка «Открыть переписку» в блоке «Что дальше» карточки агента: на телефоне цель касания 44 (--hb-h-touch), на десктопе вид прежний. */
+@media (max-width: 899px) { :where(.hb) [data-guide="admin.partners.panel.onboarding"] .nstep__act .more { min-height: var(--hb-h-touch); } }
