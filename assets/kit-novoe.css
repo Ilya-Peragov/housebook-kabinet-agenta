@@ -8474,6 +8474,7 @@ pre.codeline { font-weight: 400; }
 a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 
 /* ===== Мой сайт (экран «Мой сайт» агента, sy-*): токены кита, без градиентов ===== */
+/* Мой сайт: стили раздела. Селекторы без префикса; в доски холста попадают с префиксом .hb.kab--agent (moy_sayt.py), в прототип - как есть (kit-novoe.css и tools/novoe-tail.css). Только токены кита. */
 .sy-grid{display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:20px;align-items:start}
 .sy-col{display:grid;gap:20px;min-width:0}
 .sy-side{position:sticky;top:16px;min-width:0}
@@ -8516,44 +8517,88 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 .sy-fun{margin:0}
 .sy-pv-wrap{display:grid;gap:12px;min-width:0}
 .sy-pv-wrap .sy-head{align-items:center}
-.sy-pv{--sy-c:var(--hb-jade);display:grid;justify-items:center;min-width:0;padding:16px;border-radius:var(--hb-r-l);background:var(--hb-sunken)}
-.sy-pv__dev{display:grid;grid-template-rows:auto minmax(0,1fr);width:100%;max-width:280px;min-width:0;overflow:hidden;border:6px solid var(--hb-ink);border-radius:28px;background:var(--hb-paper);color:var(--hb-ink);box-sizing:border-box}
-.sy-pv__bar{display:none}
-.sy-pv__scr{display:grid;align-content:start;gap:10px;min-width:0;padding:12px;font-size:11px;line-height:15px}
-.sy-pv__h{display:flex;align-items:center;gap:8px;min-width:0}
-.sy-pv__h b{min-width:0;font:600 12px/16px Geologica,"IBM Plex Sans",sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sy-pv__logo{flex:none;display:grid;place-items:center;overflow:hidden;width:26px;height:26px;border-radius:8px;background:var(--sy-c);color:#fff;font:600 10px/1 Geologica,"IBM Plex Sans",sans-serif}
-.sy-pv__logo img{display:block;width:100%;height:100%;object-fit:cover}
-.sy-pv__hero{display:grid;gap:6px;padding:12px;border-radius:12px;background:var(--sy-c);color:#fff}
-.sy-pv__hero h4{margin:0;font:600 14px/18px Geologica,"IBM Plex Sans",sans-serif;color:#fff}
-.sy-pv__hero p{margin:0;color:#fff;opacity:.92}
-.sy-pv__btn{display:inline-flex;align-items:center;justify-self:start;min-height:26px;padding:0 10px;border-radius:999px;background:#fff;color:var(--hb-ink);font-weight:600}
-.sy-pv__cards{display:grid;gap:6px;margin:0;padding:0;list-style:none}
-.sy-pv__cards li{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 8px;align-items:center;padding:6px;border:1px solid var(--hb-line);border-radius:10px}
-.sy-pv__img{grid-row:span 2;display:grid;place-items:center;width:34px;height:34px;border-radius:8px;background:var(--hb-tint);color:var(--hb-accent-text)}
-.sy-pv__img .ic{width:16px;height:16px}
-.sy-pv__cards b{min-width:0;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sy-pv__cards small{min-width:0;font-size:10px;line-height:14px;color:var(--hb-ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sy-pv__cards small em{font-style:normal;font-weight:600;color:var(--sy-c)}
-.sy-pv__who{display:flex;align-items:center;gap:8px;padding:8px;border-radius:10px;background:var(--hb-sunken);min-width:0}
-.sy-pv__ph{flex:none;display:grid;place-items:center;overflow:hidden;width:30px;height:30px;border-radius:50%;background:var(--sy-c);color:#fff;font:600 10px/1 Geologica,"IBM Plex Sans",sans-serif}
-.sy-pv__ph img{display:block;width:100%;height:100%;object-fit:cover}
-.sy-pv__who p{margin:0;min-width:0}
-.sy-pv__who small{display:block;font-size:10px;line-height:14px;color:var(--hb-ink-2)}
-.sy-pv__tg{display:flex;align-items:center;justify-content:center;gap:6px;min-height:34px;padding:0 12px;border-radius:999px;background:var(--sy-c);color:#fff;font-weight:600;text-align:center}
-.sy-pv__tg .ic{flex:none;width:14px;height:14px}
-.sy-pv--desk .sy-pv__dev{max-width:none;border-width:1px;border-radius:12px;border-color:var(--hb-line)}
-.sy-pv--desk .sy-pv__bar{display:flex;align-items:center;gap:8px;padding:6px 10px;border-bottom:1px solid var(--hb-line);background:var(--hb-sunken);font-size:10px;line-height:14px;color:var(--hb-ink-3);min-width:0}
-.sy-pv--desk .sy-pv__bar span{flex:none;width:8px;height:8px;border-radius:50%;background:var(--hb-line)}
-.sy-pv--desk .sy-pv__bar em{min-width:0;font-style:normal;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sy-pv--desk .sy-pv__scr{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:10px;font-size:10px;line-height:14px}
-.sy-pv--desk .sy-pv__h,.sy-pv--desk .sy-pv__hero,.sy-pv--desk .sy-pv__who,.sy-pv--desk .sy-pv__tg{grid-column:1 / -1}
-.sy-pv--desk .sy-pv__cards{display:contents}
-.sy-pv--desk .sy-pv__cards li{grid-template-columns:minmax(0,1fr);gap:2px;padding:6px}
-.sy-pv--desk .sy-pv__img{grid-row:auto;width:100%;height:34px}
-.sy-pv--desk .sy-pv__hero{grid-template-columns:minmax(0,1fr) auto;align-items:center}
-.sy-pv--desk .sy-pv__hero p{grid-column:1}
-.sy-pv--desk .sy-pv__btn{grid-column:2;grid-row:1 / span 2}
+.sy-pv{--sy-c:var(--hb-jade);display:grid;justify-items:center;min-width:0;padding:20px 12px;border-radius:var(--hb-r-l);background:var(--hb-sunken)}
+.sy-wiz__pv .sy-pv{padding:20px 0;background:none}
+.sy-dev{position:relative;width:280px;max-width:100%;height:606px;box-sizing:border-box;padding:5px;border-radius:46px;background:#121517;box-shadow:inset 0 0 0 1px #4D5254,0 10px 24px rgba(18,21,23,.22)}
+.sy-dev__b{position:absolute;width:3px;border-radius:2px;background:#4D5254}
+.sy-dev__b--s{left:-3px;top:96px;height:26px}
+.sy-dev__b--u{left:-3px;top:140px;height:44px}
+.sy-dev__b--d{left:-3px;top:194px;height:44px}
+.sy-dev__b--p{right:-3px;top:150px;height:68px}
+.sy-dev__body{position:relative;display:flex;flex-direction:column;height:100%;overflow:hidden;border-radius:41px;background:var(--hb-paper)}
+.sy-dev__st{position:relative;flex:none;display:flex;align-items:center;justify-content:space-between;height:46px;padding:6px 24px 0;box-sizing:border-box;font:600 13px/16px "IBM Plex Sans",sans-serif;color:#121517;background:var(--hb-paper)}
+.sy-dev__isl{position:absolute;left:50%;top:9px;width:86px;height:25px;margin-left:-43px;border-radius:13px;background:#000}
+.sy-dev__ind{display:flex;align-items:center;gap:5px}
+.sy-dev__ind svg{display:block;height:11px;width:auto}
+.sy-dev__home{position:absolute;left:50%;bottom:7px;z-index:3;width:98px;height:4px;margin-left:-49px;border-radius:2px;background:#121517}
+.sy-dev__win{display:none}
+.sy-scr{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:none}
+.sy-scr::-webkit-scrollbar{display:none}
+.sy-site{width:360px;zoom:.75;padding-bottom:36px;background:var(--hb-paper);color:#121517;font:400 14px/20px "IBM Plex Sans",sans-serif;text-align:start}
+.sy-site h1,.sy-site h2,.sy-site h3,.sy-site h4{margin:0;font-family:Geologica,"IBM Plex Sans",sans-serif;font-weight:600;color:inherit}
+.sy-site p{margin:0}
+.sy-s-h{display:flex;align-items:center;gap:10px;height:56px;padding:0 16px;box-sizing:border-box;border-bottom:1px solid var(--hb-line);background:var(--hb-paper)}
+.sy-s-logo{flex:none;display:grid;place-items:center;overflow:hidden;width:34px;height:34px;border-radius:50%;background:var(--sy-c);color:#fff;font:600 13px/1 Geologica,"IBM Plex Sans",sans-serif}
+.sy-s-logo img{display:block;width:100%;height:100%;object-fit:cover}
+.sy-s-name{flex:1;min-width:0;font:600 15px/20px Geologica,"IBM Plex Sans",sans-serif;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sy-s-write{flex:none;display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;background:var(--sy-c);color:#fff;font-weight:600;font-size:13px}
+.sy-s-write svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.sy-s-hero{display:grid;gap:14px;align-content:end;min-height:330px;padding:28px 16px 56px;box-sizing:border-box;background:var(--sy-c) url("kit/patterns/izometriya-zelenyy.svg") center / 420px auto;color:#fff}
+.sy-s-hero>div{display:grid;gap:12px;padding:16px;border-radius:14px;background:var(--sy-c)}
+.sy-s-hero h1{font-size:28px;line-height:34px;color:#fff}
+.sy-s-hero p{color:#fff;font-size:15px;line-height:22px}
+.sy-s-cta{justify-self:start;display:inline-flex;align-items:center;height:44px;padding:0 20px;border-radius:999px;background:#fff;color:#121517;font-weight:600;font-size:15px}
+.sy-s-quiz{position:relative;margin:-36px 16px 0;padding:16px;border:1px solid var(--hb-line);border-radius:16px;background:var(--hb-paper);box-shadow:0 8px 20px rgba(18,21,23,.12);display:grid;gap:12px}
+.sy-s-quiz h3{font-size:17px;line-height:22px}
+.sy-s-step{display:flex;justify-content:space-between;color:var(--hb-ink-2);font-size:12px;line-height:16px}
+.sy-s-prog{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin:0;padding:0;list-style:none}
+.sy-s-prog li{height:4px;border-radius:2px;background:var(--hb-line)}
+.sy-s-prog li:first-child{background:var(--sy-c)}
+.sy-s-q{font-weight:600}
+.sy-s-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.sy-s-chip{display:inline-flex;align-items:center;gap:4px;height:34px;padding:0 14px;box-sizing:border-box;border:1px solid var(--hb-control);border-radius:999px;background:var(--hb-paper);font-size:13px;white-space:nowrap}
+.sy-s-chip.is-on{border-color:var(--sy-c);background:var(--sy-c);color:#fff}
+.sy-s-chip svg{width:12px;height:12px;stroke:currentColor;fill:none;stroke-width:2.4}
+.sy-s-acts{display:flex;gap:8px}
+.sy-s-btn{flex:1;display:inline-flex;align-items:center;justify-content:center;height:40px;border-radius:999px;border:1px solid var(--hb-control);font-weight:600;font-size:14px;background:var(--hb-paper)}
+.sy-s-btn--p{border-color:var(--sy-c);background:var(--sy-c);color:#fff}
+.sy-s-btn--off{color:var(--hb-ink-3);border-color:var(--hb-line)}
+.sy-s-sec{display:grid;gap:12px;padding:28px 16px 0}
+.sy-s-sec h2{font-size:20px;line-height:26px}
+.sy-s-cards{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.sy-s-card{display:grid;overflow:hidden;border:1px solid var(--hb-line);border-radius:14px;background:var(--hb-paper)}
+.sy-s-img{position:relative;height:150px;background:var(--hb-tint) url("kit/patterns/krovli-podlozhka.svg") center / 260px auto}
+.sy-s-card.i1 .sy-s-img{background-image:url("kit/patterns/izometriya-bumaga.svg")}
+.sy-s-card.i2 .sy-s-img{background-image:url("kit/patterns/shahmatka-bumaga.svg")}
+.sy-s-card.i3 .sy-s-img{background-image:url("kit/patterns/liniya-bumaga.svg")}
+.sy-s-flag{position:absolute;left:10px;top:10px;padding:3px 10px;border-radius:999px;background:var(--hb-paper);font-size:12px;line-height:16px;font-weight:600}
+.sy-s-tx{display:grid;gap:2px;padding:12px 14px 14px}
+.sy-s-tx h4{font-size:16px;line-height:22px}
+.sy-s-tx span{color:var(--hb-ink-2);font-size:13px;line-height:18px}
+.sy-s-tx b{margin-top:4px;font-size:16px;line-height:22px;color:var(--sy-c)}
+.sy-s-ab{display:grid;gap:12px;margin:28px 16px 0;padding:18px;border-radius:16px;background:var(--hb-sunken)}
+.sy-s-ab__r{display:flex;align-items:center;gap:14px}
+.sy-s-av{flex:none;display:grid;place-items:center;overflow:hidden;width:60px;height:60px;border-radius:50%;background:var(--sy-c);color:#fff;font:600 20px/1 Geologica,"IBM Plex Sans",sans-serif}
+.sy-s-av img{display:block;width:100%;height:100%;object-fit:cover}
+.sy-s-ab small{display:block;color:var(--hb-ink-2);font-size:12px;line-height:16px}
+.sy-s-ab b{display:block;font:600 17px/22px Geologica,"IBM Plex Sans",sans-serif}
+.sy-s-ft{margin-top:28px;text-align:center;color:var(--hb-ink-3);font-size:12px;line-height:16px}
+.sy-pv--desk .sy-dev{width:330px;height:auto;padding:0;border-radius:12px;background:var(--hb-paper);box-shadow:0 0 0 1px var(--hb-control),0 8px 20px rgba(18,21,23,.14)}
+.sy-pv--desk .sy-dev__b,.sy-pv--desk .sy-dev__st,.sy-pv--desk .sy-dev__home{display:none}
+.sy-pv--desk .sy-dev__body{height:auto;border-radius:12px}
+.sy-pv--desk .sy-dev__win{display:flex;align-items:center;gap:6px;flex:none;height:26px;padding:0 10px;background:var(--hb-sunken);border-bottom:1px solid var(--hb-line)}
+.sy-pv--desk .sy-dev__win i{flex:none;width:7px;height:7px;border-radius:50%;background:var(--hb-control)}
+.sy-pv--desk .sy-dev__win em{flex:1;min-width:0;margin-left:6px;padding:2px 10px;border-radius:999px;background:var(--hb-paper);font:400 10px/14px "IBM Plex Sans",sans-serif;font-style:normal;color:var(--hb-ink-2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sy-pv--desk .sy-scr{flex:none;height:300px}
+.sy-pv--desk .sy-site{width:900px;zoom:.3667}
+.sy-pv--desk .sy-s-h{padding:0 40px;height:68px}
+.sy-pv--desk .sy-s-hero{grid-template-columns:minmax(0,1fr) 360px;align-items:center;min-height:380px;padding:48px 40px 72px;gap:12px 48px}
+.sy-pv--desk .sy-s-hero h1{font-size:40px;line-height:48px}
+.sy-pv--desk .sy-s-quiz{position:absolute;right:40px;top:100px;width:360px;margin:0;box-sizing:border-box}
+.sy-pv--desk .sy-s-hero-w{position:relative}
+.sy-pv--desk .sy-s-sec{padding:40px 40px 0}
+.sy-pv--desk .sy-s-cards{grid-template-columns:repeat(4,minmax(0,1fr))}
+.sy-pv--desk .sy-s-ab{margin:40px 40px 0;grid-template-columns:minmax(0,1fr) auto;align-items:center}
 .sy-pv__note{margin:0;text-align:center;color:var(--hb-ink-3);font-size:var(--hb-fs-cap);line-height:var(--hb-lh-cap)}
 .sy-empty{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:32px;align-items:center;padding:24px;border:1px solid var(--hb-line);border-radius:var(--hb-r-l);background:var(--hb-paper)}
 .sy-empty__t{display:grid;gap:16px;min-width:0;align-content:center}
@@ -8609,7 +8654,6 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 .sy-grid{grid-template-columns:minmax(0,1fr)}
 .sy-side{position:static}
 .sy-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-.sy-pv__dev{max-width:300px}
 }
 @media (max-width:767px){
 .sy-empty{grid-template-columns:minmax(0,1fr);gap:20px;padding:16px}
@@ -8627,5 +8671,4 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 .sy-sws{grid-template-columns:repeat(2,minmax(0,1fr))}
 .sy-dl>div{grid-template-columns:minmax(0,1fr)}
 .sy-done{grid-template-columns:minmax(0,1fr)}
-.sy-pv__dev{max-width:280px}
 }
