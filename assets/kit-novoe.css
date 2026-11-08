@@ -8809,3 +8809,19 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 .nbs .lrow__b{display:flex;flex-direction:row;align-items:center;gap:12px}
 .nbs .lrow__b>span:last-child{font-size:1rem;color:inherit}
 .nbs .lrow__b>span:first-child{display:inline-flex;flex:none}
+
+.nb__next{display:flex;flex-direction:column;align-items:flex-start}
+.nb__need{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+.nb__next .btn{margin-top:auto}
+.nb__need + .btn{margin-top:auto}
+
+@media (max-width: 639px) {
+  .tbl--stack td.tcell--long { text-align: left; }
+  .tbl--stack td.tcell--long::before { display: block; float: none; max-width: none; margin: 0 0 4px; font-size: var(--hb-fs-cap); line-height: var(--hb-lh-cap); }
+  .tbl--stack td[data-label] > .note { display: block; text-align: right; }
+  .tbl--stack td.tcell--long > .note { text-align: left; }
+}
+
+/* p .btn.btn--link - ссылка-кнопка внутри строки текста: в строке, без отступов и высоты кнопки. Экраны: dengi, dengi-pusto (шаг 1 «Как получить выплату»). */
+p .btn.btn--link { display: inline !important; padding: 0 !important; min-height: 0 !important; height: auto !important; vertical-align: baseline; text-align: start; font: inherit; font-weight: 600; }
+p .btn.btn--link > span { display: inline; }
