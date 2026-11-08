@@ -8695,3 +8695,15 @@ pre.codeline { font-weight: 400; }
   .mx .mx-sum > div:nth-child(4) { border-left: 0; }
   .mx .mx-sum > div:nth-child(n+4) { border-top: 1px solid var(--hb-line); }
 }
+/* .clist__h и .crow без колонки выбора (Моя сеть, обзор): шапка и строка на одной сетке и с одним боковым отступом, заголовок над своими данными. Экраны: moya-set, от 1100px. В клиентах колонка выбора, там прежние отступы. */
+@media (min-width: 1100px) {
+  .clist:not(:has(.kl-sel)) .clist__h, .clist:not(:has(.kl-sel)) .crow { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, 1.4fr) 20px; }
+  .clist:not(:has(.kl-sel)) .clist__h { padding: 10px 20px; }
+  .clist:not(:has(.kl-sel)) > ul > li .crow { padding-left: 20px; }
+  .clist:not(:has(.kl-sel)) .crow__need:not(.crow__need--act) { padding-left: 0; }
+}
+/* .clist > ul > li без колонки выбора: карточка на телефоне на всю ширину, без пустой колонки 52px под галочку. Экраны: moya-set, до 1100px. */
+@media (max-width: 1099px) {
+  .clist:not(:has(.kl-sel)) > ul > li { grid-template-columns: minmax(0, 1fr); }
+  .clist:not(:has(.kl-sel)) > ul > li .crow { grid-column: 1; }
+}
