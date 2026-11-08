@@ -8464,3 +8464,11 @@ pre.codeline { font-weight: 400; }
 /* .tbl--open .rowopen - растяжка кнопки привязана к ячейке имени, а не к tr: в Safari tr не становится опорным блоком, и растяжки всех строк
    ложились на таблицу (подсвечивалась и открывалась нижняя строка). Клик в остальных ячейках строки ловит dc.js. Только таблица, на телефоне (.tbl--stack) tr это блок. Экраны: klienty, moya-set. */
 @media (min-width: 640px) { .tbl--open tbody th[scope="row"] { position: relative; } }
+
+.mc{position:relative}
+.mc__empty{position:absolute;left:30px;right:0;top:0;height:160px;display:grid;place-items:center;margin:0;padding:0 16px;text-align:center;color:var(--hb-ink-2);font-size:var(--hb-fs-small);line-height:var(--hb-lh-small);pointer-events:none}
+.hempty{display:grid;gap:12px;justify-items:start;margin:0}
+.hempty p{margin:0}
+.fnr .lrow__b > b{grid-column:1;grid-row:1}
+.fnr .progress{grid-column:2;grid-row:1}
+a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
