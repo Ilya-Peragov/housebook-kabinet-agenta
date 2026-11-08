@@ -119,7 +119,8 @@
         return r.json();
       }).then(function (b) {
         var t = d.createElement('template');
-        t.innerHTML = b.tpl;
+        /* sc-if и sc-for в шаблоне становятся <template data-sc>: так разбор HTML не выбрасывает их из table, tbody и tr (строки таблицы по списку) */
+        t.innerHTML = b.tpl.replace(/<sc-(if|for)\b/g, '<template data-sc="$1"').replace(/<\/sc-(if|for)>/g, '</template>');
         b.nodes = t.content;
         b.id = id;
         return b;
@@ -144,12 +145,14 @@
 
   /* ---------- шаблон -> DOM ---------- */
   function mountKids(node, scope, parent, rec) {
-    for (var c = node.firstChild; c; c = c.nextSibling) mount(c, scope, parent, rec);
+    var from = node.localName === 'template' ? node.content : node;
+    for (var c = from.firstChild; c; c = c.nextSibling) mount(c, scope, parent, rec);
   }
   function mount(node, scope, parent, rec) {
     if (node.nodeType === 3) { parent.appendChild(d.createTextNode(sub(node.nodeValue, scope))); return; }
     if (node.nodeType !== 1) return;
     var tag = node.localName;
+    if (tag === 'template' && node.getAttribute('data-sc')) tag = 'sc-' + node.getAttribute('data-sc');
     if (tag === 'sc-if') {
       var cv = get(scope, node.getAttribute('value').replace(/[{}]/g, ''));
       if (cv) mountKids(node, scope, parent, rec);

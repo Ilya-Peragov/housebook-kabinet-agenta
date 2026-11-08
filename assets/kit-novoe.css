@@ -520,111 +520,27 @@
   bottom: 10px;
 }
 
-/* ===== crow (K4): строка клиента в списке: имя, статус, последняя реплика, строка «что нужно» =====
-   .crow__last - элемент «last», строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: klienty, klienty-forma, klienty-kartochka. K4
-   .crow__need - элемент «need», строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: в разметке нет, остаток правил холста. K4
-   .crow__who - элемент «who», строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: klienty, klienty-forma, klienty-kartochka. K4
+/* ===== arow (K4): строка сделки «Деньги», итог запроса выплаты, строка «кнопки нет, потому что…» =====
    .arow - строка сделки в разделе «Деньги»: клиент, сумма, статус. Экраны: dengi, dengi-pusto. K4
+   .arow__h - элемент «h», строка сделки в разделе «Деньги». Экраны: dengi, dengi-pusto. K4
+   .arow__a - элемент «a», строка сделки в разделе «Деньги». Экраны: dengi, dengi-pusto. K4
    .nomain - строка «кнопки нет, потому что…». Экраны: в разметке нет, остаток правил холста. Н
    .reqsum - итог запроса выплаты. Экраны: в разметке нет, остаток правил холста. Н
-   .arow__h - элемент «h», строка сделки в разделе «Деньги»: клиент, сумма, статус. Экраны: dengi, dengi-pusto. K4
-   .arow__a - элемент «a», строка сделки в разделе «Деньги»: клиент, сумма, статус. Экраны: dengi, dengi-pusto. K4
-   .crow - строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: klienty, klienty-forma, klienty-kartochka. K4
-   .crow__st - элемент «st», строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: klienty, klienty-forma, klienty-kartochka. K4
-   .crow__cap - элемент «cap», строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: klienty, klienty-forma, klienty-kartochka. K4
-   .crow__need--act - элемент «need--act», строка клиента в списке: имя, статус, последняя реплика, строка «что нужно». Экраны: klienty, klienty-forma, klienty-kartochka. K4
 */
-:is(.crow__last, .crow__need, .crow__who span, .arow > span, .nomain) {
+:is(.arow > span, .nomain) {
   font-size: var(--hb-fs-text);
   line-height: var(--hb-lh-row);
 }
-:is( .crow__need, .reqsum, .nomain) b {
+:is(.reqsum, .nomain) b {
   font-size: inherit;
   line-height: inherit;
   font-weight: 600;
 }
-:is(.crow__who b, .arow__h > b, b.arow__a) {
+:is(.arow__h > b, b.arow__a) {
   font-size: var(--hb-fs-text);
   line-height: var(--hb-lh-row);
   font-weight: 600;
 }
-.crow {
-  width: 100%;
-  min-height: 84px;
-  padding: 14px 20px;
-  border: 0;
-  background: none;
-  font: inherit;
-  text-align: start;
-  color: var(--hb-ink-2);
-  cursor: pointer;
-}
-.crow:hover {
-  background: var(--hb-sunken);
-}
-.crow[aria-current="true"] {
-  background: var(--hb-sel-bg);
-}
-.crow:focus-visible {
-  outline: var(--hb-ring);
-  outline-offset: -2px;
-}
-.crow > .ic:last-child {
-  color: var(--hb-ink-3);
-}
-.crow__who,
-.crow__st,
-.crow__last {
-  display: grid;
-  gap: 4px;
-  min-width: 0;
-  justify-items: start;
-}
-.crow__who span {
-  color: var(--hb-ink-2);
-}
-.crow__st small {
-  color: var(--hb-ink-3);
-}
-.crow__last {
-  color: var(--hb-ink);
-}
-.crow__cap {
-  display: none;
-  color: var(--hb-ink-3);
-}
-.crow__need {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-  min-width: 0;
-  padding: 8px 12px;
-  border-radius: var(--hb-r-m);
-  color: var(--hb-ink-2);
-}
-.crow__need > .ic {
-  flex: none;
-  margin-top: 1px;
-  color: var(--hb-ink-3);
-}
-.crow__need > span {
-  display: grid;
-  min-width: 0;
-}
-.crow__need b {
-  color: var(--hb-ink);
-}
-.crow__need small {
-  color: var(--hb-ink-2);
-}
-.crow__need--act {
-  border-left: 4px solid var(--hb-warn);
-  background: var(--hb-sunken);
-}
-.crow__need--act > .ic {
-  color: var(--hb-warn);
-}
-
 /* ===== arow (K4): строка сделки в разделе «Деньги»: клиент, сумма, статус =====
    .arow__s - элемент «s», строка сделки в разделе «Деньги»: клиент, сумма, статус. Экраны: dengi, dengi-pusto. K4
 */
@@ -2929,65 +2845,10 @@ span.avatar.pf-av {
   padding: 12px 14px;
 }
 
-/* ===== clist (D8): список клиентов: строки с раскрытием на всю строку =====
-   .clist__h - элемент «h», список клиентов: строки с раскрытием на всю строку. Экраны: klienty, klienty-forma, klienty-kartochka. D8
-   .reqsum__l - элемент «l», итог запроса выплаты. Экраны: в разметке нет, остаток правил холста. Н
-   .reqsum__d - элемент «d», итог запроса выплаты. Экраны: в разметке нет, остаток правил холста. Н
-   .clist - список клиентов: строки с раскрытием на всю строку. Экраны: klienty, klienty-forma, klienty-kartochka. D8
-*/
-:is( .clist__h, .crow__cap, .crow__st small, .reqsum__l, .reqsum__d) {
+:is(.reqsum__l, .reqsum__d) {
   font-size: var(--hb-fs-small);
   line-height: var(--hb-lh-small);
 }
-.clist {
-  display: grid;
-  overflow: hidden;
-  border: 1px solid var(--hb-line);
-  border-radius: var(--hb-r-l);
-  background: var(--hb-paper);
-}
-.clist > ul {
-  display: grid;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-.clist > ul > li + li {
-  border-top: 1px solid var(--hb-line);
-}
-.clist__h,
-.crow {
-  display: grid;
-  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, .8fr) minmax(0, 1.5fr) 20px;
-  gap: 8px 20px;
-  align-items: center;
-}
-.clist__h {
-  padding: 10px 20px;
-  border-bottom: 1px solid var(--hb-line);
-  background: var(--hb-sunken);
-  font-weight: 600;
-  color: var(--hb-ink-2);
-}
-.clist {
-  position: relative;
-}
-.clist__h {
-  position: relative;
-  padding-left: 72px;
-  padding-right: 130px;
-}
-.clist > ul > li {
-  display: flex;
-  align-items: center;
-}
-.clist > ul > li .crow {
-  flex: 1 1 auto;
-  min-width: 0;
-  width: auto;
-  padding-left: 8px;
-}
-
 /* ===== dl-btn (D8): кнопка «скачать» в строке xrow =====
    .dl-btn - кнопка «скачать» в строке xrow. Экраны: api, dokumenty, komanda, pomoshch. D8
    .pt-link - ссылка-кнопка в строке. Экраны: obekty, obekty-vybrano. Н
@@ -6899,33 +6760,6 @@ a.tcard:hover {
   color: var(--hb-ink);
 }
 
-/* ===== kl-sel (Н): мелочи экрана «Клиенты»: окно, шторка, подсказки =====
-   .kl-sel - мелочи экрана «Клиенты»: окно, шторка, подсказки. Экраны: klienty, klienty-forma, klienty-kartochka. Н
-   .kl-sel--all - вариант «all», мелочи экрана «Клиенты»: окно, шторка, подсказки. Экраны: klienty, klienty-forma, klienty-kartochka. Н
-*/
-.kl-sel {
-  flex: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  align-self: stretch;
-  cursor: pointer;
-  margin: 0;
-}
-.kl-sel--all {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-}
-.kl-sel input {
-  width: 22px;
-  height: 22px;
-  margin: 0;
-  flex: none;
-}
-
 /* ===== sc-interp (Н): блок экрана холста =====
    .sc-interp - блок экрана холста. Экраны: в разметке нет, остаток правил холста. Н
 */
@@ -7156,18 +6990,6 @@ a.tcard:hover {
   gap: 10px;
 }
 
-/* ===== kl-vh (Н): мелочи экрана «Клиенты»: окно, шторка, подсказки =====
-   .kl-vh - визуально скрытый текст для скринридера (sr-only). Экраны: klienty, klienty-forma, klienty-kartochka. Н
-*/
-.kl-vh {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-}
-
 /* ===== kl-bulk (Н): мелочи экрана «Клиенты»: окно, шторка, подсказки =====
    .kl-bulk - мелочи экрана «Клиенты»: окно, шторка, подсказки. Экраны: klienty, klienty-forma, klienty-kartochka. Н
 */
@@ -7366,42 +7188,6 @@ a.tcard:hover {
 @media (max-width: 599px) {
   .ob-chip--l {
     display: none;
-  }
-}
-
-/* --- crow: адаптив --- */
-@media (max-width: 1099px) {
-  .crow {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "who chev" "st st" "last last" "need need";
-    padding: 16px;
-    min-height: 0;
-  }
-  .crow__who {
-    grid-area: who;
-  }
-  .crow > .ic:last-child {
-    grid-area: chev;
-    align-self: start;
-  }
-  .crow__st {
-    grid-area: st;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 4px 10px;
-  }
-  .crow__last {
-    grid-area: last;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0 6px;
-  }
-  .crow__cap {
-    display: inline;
-  }
-  .crow__need {
-    grid-area: need;
   }
 }
 
@@ -7705,43 +7491,6 @@ a.tcard:hover {
   }
   .nstep--lg .lact > .btn:not(.btn--icon) {
     flex: 1 1 100%;
-  }
-}
-
-/* --- clist: адаптив --- */
-@media (max-width: 1099px) {
-  .clist {
-    border: 0;
-    border-radius: 0;
-    background: none;
-    overflow: visible;
-  }
-  .clist__h {
-    display: none;
-  }
-  .clist > ul {
-    gap: 12px;
-  }
-  .clist > ul > li {
-    border: 1px solid var(--hb-line);
-    border-radius: var(--hb-r-l);
-    background: var(--hb-paper);
-    overflow: hidden;
-  }
-  .clist > ul > li + li {
-    border-top: 1px solid var(--hb-line);
-  }
-}
-@media (max-width:1099px) {
-  .clist > ul > li {
-    display: grid;
-    grid-template-columns: 52px minmax(0,1fr);
-    align-items: start;
-  }
-  .clist > ul > li .crow {
-    grid-column: 2;
-    grid-row: 1;
-    padding-left: 0;
   }
 }
 
@@ -8313,27 +8062,6 @@ a.tcard:hover {
   }
 }
 
-/* --- kl-sel: адаптив --- */
-@media (max-width:899px) {
-  .kl-sel {
-    min-width: 44px;
-    min-height: 44px;
-    align-items: center;
-    justify-content: center;
-  }
-  .kl-sel input {
-    margin: 0;
-  }
-}
-@media (max-width:1099px) {
-  .kl-sel {
-    align-self: start;
-    height: 56px;
-    grid-column: 1;
-    grid-row: 1;
-  }
-}
-
 /* --- kl-qa: адаптив --- */
 @media (min-width:900px) {
   .kl-qa .btn {
@@ -8380,17 +8108,7 @@ a.tcard:hover {
 }
 
 /* ===== Поправки порядка (идут в конец файла, Н) =====
-   Блоки собраны по карточкам, а не в порядке холста: базовые правила clist стоят позже мобильных правил crow
-   и перебивали их. Здесь мобильная раскладка строки клиента повторена с большей специфичностью. Экраны: klienty, klienty-forma, klienty-kartochka.
    .seg button - кнопки переключателя не переносят подпись и на телефоне получают высоту под палец (в ките нет). Экраны: obekty, klienty-forma, podborki, mediapartner. */
-@media (max-width: 1099px) {
-  .clist > ul > li .crow {
-    grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "who chev" "st st" "last last" "need need";
-    padding: 16px;
-    min-height: 0;
-  }
-}
 .seg button { white-space: nowrap; }
 @media (max-width: 899px) { .seg button { min-height: 44px; } }
 
@@ -8519,10 +8237,6 @@ pre.codeline { font-weight: 400; }
 /* .disclose > summary - строка раскрывашки переносится: длинный бейдж срока уходит целиком на вторую строку и не выталкивает шеврон за экран (находка робота: Медиапартнёр, 390). Экраны: mediapartner. */
 .disclose > summary { flex-wrap: wrap; max-width: 100%; }
 .disclose > summary > svg { flex: none; }
-/* .crow - колонка «Состояние» чуть шире: длинная метка «Первый платёж внесён» строчным бейджем кита (badge--txt) помещается в ячейку. Экраны: klienty, klienty-forma, klienty-kartochka, от 900px. */
-@media (min-width: 900px) {
-  .crow { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, 1.4fr) 20px; }
-}
 /* [tabindex="-1"]:focus - диалог и панели, на которые фокус ставится программно при открытии мышью или касанием, без кольца; кольцо остаётся у элементов при работе с клавиатуры. Экраны: все окна и панели. */
 .hb-kab-ovl[tabindex="-1"]:focus, .hb-kab-ovl [tabindex="-1"]:focus, .nv-pop[tabindex="-1"]:focus, .nv-sp[tabindex="-1"]:focus, [role="dialog"][tabindex="-1"]:focus { outline: none; box-shadow: none; }
 /* карта сети (холст 08.11, версия 65): кольца и список ветками, перенесено из холста, только токены кита */
@@ -8590,7 +8304,7 @@ pre.codeline { font-weight: 400; }
 .v4c .how .s1,.v4c .how .s2{flex:none;border-radius:999px;border:2px solid var(--hb-control)}
 .v4c .how .s1{width:20px;height:20px;background:var(--hb-control)}.v4c .how .s2{width:14px;height:14px;background:var(--hb-paper)}
 .v4c .how .s3{flex:none;width:20px;height:10px;border-radius:5px;background:var(--hb-control);opacity:.6}
-@media (max-width:899px){
+@media (max-width:899px) {
   .v4c{grid-template-columns:minmax(0,1fr);gap:16px}
   .v4c__lg ul{grid-template-columns:minmax(0,1fr)}
   .v4c .lgi{grid-template-columns:auto minmax(0,1fr) auto;padding:6px 10px}
@@ -8626,7 +8340,7 @@ pre.codeline { font-weight: 400; }
 .vc .n2::after{content:attr(data-tip);display:none;position:absolute;left:calc(100% + 6px);top:50%;transform:translateY(-50%);z-index:30;width:max-content;max-width:230px;padding:6px 10px;border-radius:var(--hb-r-s);background:var(--hb-ink);color:var(--hb-paper);font:500 13px/18px "IBM Plex Sans",sans-serif;box-shadow:var(--hb-e3);pointer-events:none;white-space:normal}
 .vc .n2:hover::after,.vc .n2:focus::after{display:block}
 .vc .vc-hint{display:flex;gap:8px;align-items:center;margin:0}
-@media (min-width:900px){
+@media (min-width:900px) {
   .vc__sc{overflow-x:auto;overflow-y:hidden;border:1px solid var(--hb-line);border-radius:var(--hb-r-m);background:var(--hb-paper);padding:16px 16px 20px}
   .vc__in{width:100%;min-width:max-content}
   .vc__top{position:sticky;left:16px;z-index:4;margin-left:8px}
@@ -8641,7 +8355,7 @@ pre.codeline { font-weight: 400; }
   .vc .l1c .wr{font-size:13px}
   .vc .kids{margin-top:6px}
 }
-@media (max-width:899px){
+@media (max-width:899px) {
   .vc__sc{overflow:visible}
   .vc__top{width:auto;justify-items:start}
   .vc .stub{display:none}
@@ -8662,7 +8376,7 @@ pre.codeline { font-weight: 400; }
 /* ---- переключатель вида карты (seg из кита) ---- */
 .mx .mx-sw{display:flex}
 .mx .mx-sw .seg{min-width:340px}
-@media (max-width:899px){.mx .mx-sw .seg{display:flex;width:100%;min-width:0}}
+@media (max-width:899px) {.mx .mx-sw .seg{display:flex;width:100%;min-width:0}}
 .v4c:has(.b-m:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-m){opacity:.2}.v4c:has(.b-m:is(:hover,:focus)) .sp.b-m{opacity:1}.v4c:has(.b-m:is(:hover,:focus)) .dot.b-m,.v4c:has(.b-m:is(:hover,:focus)) .lgi.b-m{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
 .v4c:has(.b-e:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-e){opacity:.2}.v4c:has(.b-e:is(:hover,:focus)) .sp.b-e{opacity:1}.v4c:has(.b-e:is(:hover,:focus)) .dot.b-e,.v4c:has(.b-e:is(:hover,:focus)) .lgi.b-e{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
 .v4c:has(.b-r:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-r){opacity:.2}.v4c:has(.b-r:is(:hover,:focus)) .sp.b-r{opacity:1}.v4c:has(.b-r:is(:hover,:focus)) .dot.b-r,.v4c:has(.b-r:is(:hover,:focus)) .lgi.b-r{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
@@ -8695,19 +8409,6 @@ pre.codeline { font-weight: 400; }
   .mx .mx-sum > div:nth-child(4) { border-left: 0; }
   .mx .mx-sum > div:nth-child(n+4) { border-top: 1px solid var(--hb-line); }
 }
-/* .clist__h и .crow без колонки выбора (Моя сеть, обзор): шапка и строка на одной сетке и с одним боковым отступом, заголовок над своими данными. Экраны: moya-set, от 1100px. В клиентах колонка выбора, там прежние отступы. */
-@media (min-width: 1100px) {
-  .clist:not(:has(.kl-sel)) .clist__h, .clist:not(:has(.kl-sel)) .crow { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.2fr) minmax(0, .8fr) minmax(0, 1.4fr) 20px; }
-  .clist:not(:has(.kl-sel)) .clist__h { padding: 10px 20px; }
-  .clist:not(:has(.kl-sel)) > ul > li .crow { padding-left: 20px; }
-  .clist:not(:has(.kl-sel)) .crow__need:not(.crow__need--act) { padding-left: 0; }
-}
-/* .clist > ul > li без колонки выбора: карточка на телефоне на всю ширину, без пустой колонки 52px под галочку. Экраны: moya-set, до 1100px. */
-@media (max-width: 1099px) {
-  .clist:not(:has(.kl-sel)) > ul > li { grid-template-columns: minmax(0, 1fr); }
-  .clist:not(:has(.kl-sel)) > ul > li .crow { grid-column: 1; }
-}
-
 /* ===== Главная опытного агента: сетка карточек (hgrid, hcard, mc, fnr, nrow, npulse); экран glavnaya, 08.11.2026 ===== */
 .hgrid{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:20px;align-items:stretch}
 .hcard{display:flex;flex-direction:column;gap:0;padding:0;min-width:0}
@@ -8739,7 +8440,7 @@ pre.codeline { font-weight: 400; }
 .mc__c:nth-last-child(-n+2) .mc__tip{left:auto;right:0;transform:none}
 .mc__x span{white-space:nowrap}
 .mc__x{grid-column:2;display:grid;grid-template-columns:repeat(var(--n,12),minmax(0,1fr));padding-top:8px;font-size:var(--hb-fs-small);line-height:var(--hb-lh-small);color:var(--hb-ink-3);text-align:center}
-@media (max-width:640px){.mc--12 .mc__x span:nth-child(even){visibility:hidden}.mc__b{width:min(8px,42%)}}
+@media (max-width:640px) {.mc--12 .mc__x span:nth-child(even){visibility:hidden}.mc__b{width:min(8px,42%)}}
 .fnr{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) 2.5em;align-items:center;gap:12px;min-height:44px;padding:4px 8px;border-radius:var(--hb-r-s);color:var(--hb-ink);text-decoration:none}
 .fnr:hover{background:var(--hb-tint)}
 .fnr .lrow__b{display:contents}
@@ -8754,5 +8455,8 @@ pre.codeline { font-weight: 400; }
 .npulse{margin:0;padding-top:16px;border-top:1px solid var(--hb-line);color:var(--hb-ink)}
 .npulse + .note{margin:0}
 .hcard .tline{margin:0}
-@media (max-width:1099px){.hgrid{grid-template-columns:minmax(0,1fr)}}
-@media (max-width:640px){.hcard__h{padding:12px 16px;min-height:0}.hcard__b{padding:16px}.hcard__f{padding:14px 16px 16px;gap:8px}}
+@media (max-width:1099px) {.hgrid{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:640px) {.hcard__h{padding:12px 16px;min-height:0}.hcard__b{padding:16px}.hcard__f{padding:14px 16px 16px;gap:8px}}
+
+/* .tbl th .note - вторая строка в ячейке-заголовке строки (клиент: «Ищет: ...») обычным весом, а не жирным заголовка. Экраны: klienty. */
+.tbl tbody th[scope="row"] .note { font-weight: 400; }
