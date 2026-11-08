@@ -8525,3 +8525,173 @@ pre.codeline { font-weight: 400; }
 }
 /* [tabindex="-1"]:focus - диалог и панели, на которые фокус ставится программно при открытии мышью или касанием, без кольца; кольцо остаётся у элементов при работе с клавиатуры. Экраны: все окна и панели. */
 .hb-kab-ovl[tabindex="-1"]:focus, .hb-kab-ovl [tabindex="-1"]:focus, .nv-pop[tabindex="-1"]:focus, .nv-sp[tabindex="-1"]:focus, [role="dialog"][tabindex="-1"]:focus { outline: none; box-shadow: none; }
+/* карта сети (холст 08.11, версия 65): кольца и список ветками, перенесено из холста, только токены кита */
+.mx{display:grid;grid-template-columns:minmax(0,1fr);gap:16px}
+.mx .mx-sum{grid-template-columns:repeat(6,minmax(0,1fr))}
+.mx .mx-sum>div+div{border-left:1px solid var(--hb-line)}
+.mx .mx-sum>div:last-child{background:var(--hb-sunken)}
+.mx .mx-sum b{font-size:28px;line-height:32px}
+.mx .mx-sum span{font-size:14px;line-height:18px}
+.mx .mx-expl{display:flex;gap:12px;align-items:flex-start;margin:0;padding:14px 18px;border:1px solid var(--hb-line);border-left:5px solid var(--hb-info);border-radius:var(--hb-r-m);background:var(--hb-paper);font-size:16px;line-height:24px;color:var(--hb-ink)}
+.mx .mx-expl .ic{flex:none;margin-top:2px;color:var(--hb-accent-text)}
+.mx .ic{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.mx .ic--16{width:16px;height:16px}
+.mx button{font:inherit;color:inherit;text-align:left}
+.mx .dt{display:inline-block;width:10px;height:10px;border-radius:999px;flex:none;background:var(--hb-control)}
+.mx .dt--ok{background:var(--hb-ok)}.mx .dt--warn{background:var(--hb-warn)}.mx .dt--muted{background:var(--hb-control)}
+.mx :focus-visible{outline:2px solid var(--hb-accent);outline-offset:2px}
+.mx .mx-sub{margin:0;font-size:14px;line-height:20px;color:var(--hb-ink-3)}
+.mx .wr{display:inline-flex;gap:6px;align-items:center;font-size:14px;line-height:20px;font-weight:500;color:var(--hb-accent-text)}
+.mx .lg-key{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;margin:0;font-size:14px;line-height:20px;color:var(--hb-ink-2)}
+.mx .lg-key>span{display:inline-flex;gap:8px;align-items:center}
+.mx .ky{flex:none;display:inline-block;width:30px;height:18px;border-radius:4px;border:1px solid var(--hb-line);background:var(--hb-paper);box-shadow:inset 4px 0 0 var(--hb-accent)}
+.mx .ky--n{background:var(--hb-sunken);box-shadow:none}
+.mx .l1c{display:grid;gap:6px;width:100%;box-sizing:border-box;padding:12px 14px;background:var(--hb-paper);border:1px solid var(--hb-line);border-left:5px solid var(--bc,var(--hb-accent));border-radius:var(--hb-r-m);box-shadow:var(--hb-e1);cursor:pointer;color:var(--hb-ink)}
+.mx .l1c:hover{box-shadow:var(--hb-e2);border-color:var(--hb-control);border-left-color:var(--bc,var(--hb-accent))}
+.mx .l1c b{font:600 16px/22px "Geologica",sans-serif;overflow-wrap:anywhere}
+.mx .l1c .badge{justify-self:start}
+.mx .n2{display:grid;gap:2px;box-sizing:border-box;padding:7px 10px;background:var(--hb-sunken);border:1px solid var(--hb-line);border-radius:var(--hb-r-s);color:var(--hb-ink)}
+.mx .n2 b{font:500 14px/18px "IBM Plex Sans",sans-serif;overflow-wrap:anywhere}
+.mx .n2 span{display:flex;gap:6px;align-items:center;font-size:12px;line-height:16px;color:var(--hb-ink-3)}
+.mx .n2 .dt{width:8px;height:8px}
+.mx .lv{display:inline-grid;place-items:center;flex:none;width:20px;height:20px;border-radius:999px;background:var(--hb-paper);border:1px solid var(--hb-control);font:600 12px/1 "IBM Plex Sans",sans-serif;color:var(--hb-ink-2)}
+.mx .n2 .row1{display:flex;gap:8px;align-items:flex-start}
+
+/* ---- v4c: кольца на большой сети ---- */
+.mx .k1{--bc:var(--hb-accent);--bt:#fff}.mx .k2{--bc:var(--hb-orange);--bt:#fff}.mx .k3{--bc:var(--hb-yellow);--bt:var(--hb-ink)}.mx .k4{--bc:var(--hb-red);--bt:#fff}.mx .k5{--bc:var(--hb-ink);--bt:var(--hb-paper)}.mx .kg{--bc:var(--hb-control);--bt:#fff}
+.v4c{display:grid;grid-template-columns:minmax(0,1fr) 392px;gap:24px;align-items:start}
+.v4c__ch{container-type:inline-size;position:relative;width:100%;max-width:700px;aspect-ratio:1/1;margin:0 auto}
+.v4c__ch>*{position:absolute;box-sizing:border-box}
+.v4c .wg{left:0;top:0;width:100%;height:100%;pointer-events:none;transition:opacity .15s}
+.v4c .ring{border:2px dashed var(--hb-line);border-radius:999px;transform:translate(-50%,-50%);pointer-events:none}
+.v4c .arc{left:0;top:0;width:100%;height:100%;pointer-events:none;opacity:.8;transition:opacity .15s;-webkit-mask-image:radial-gradient(farthest-side,transparent var(--ri),#000 var(--ri),#000 var(--ro),transparent var(--ro));mask-image:radial-gradient(farthest-side,transparent var(--ri),#000 var(--ri),#000 var(--ro),transparent var(--ro))}
+.v4c .arcn{transform:translate(-50%,-50%);display:grid;place-items:center;min-width:3cqw;height:3cqw;border-radius:999px;background:var(--hb-paper);border:1px solid var(--bc);color:var(--hb-ink);font:600 clamp(9px,1.9cqw,13px)/1 "IBM Plex Sans",sans-serif;padding:0 3px;transition:opacity .15s}
+.v4c .rl{transform:translate(-50%,-50%);display:grid;place-items:center;min-width:22px;height:22px;padding:0 6px;border-radius:999px;background:var(--hb-page);border:1px solid var(--hb-control);font:600 12px/1 "IBM Plex Sans",sans-serif;color:var(--hb-ink-2);white-space:nowrap;z-index:3;pointer-events:none}
+.v4c .sp{height:0;border-top:1.5px solid var(--bc);opacity:.55;transform-origin:0 50%;pointer-events:none;transition:opacity .15s}
+.v4c .cen{transform:translate(-50%,-50%);display:grid;place-items:center;width:9cqw;height:9cqw;border-radius:999px;background:var(--hb-jade);color:var(--hb-on-jade);font:600 clamp(13px,2.6cqw,18px)/1 "Geologica",sans-serif;box-shadow:var(--hb-e2)}
+.v4c .dot{transform:translate(-50%,-50%);display:grid;place-items:center;border-radius:999px;border:2px solid var(--bc);background:color-mix(in srgb,var(--bc) 16%,var(--hb-paper));color:var(--hb-ink);font-family:"IBM Plex Sans",sans-serif;font-weight:600;line-height:1;padding:0;transition:opacity .15s,box-shadow .15s}
+.v4c .dot.l1{background:var(--bc);color:var(--bt);cursor:pointer;box-shadow:var(--hb-e1)}
+.v4c .dot .nm1,.v4c .arcn .nm1{display:none;position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);z-index:40;width:max-content;max-width:220px;padding:8px 12px;border-radius:var(--hb-r-s);background:var(--hb-ink);color:var(--hb-paper);font:500 14px/20px "IBM Plex Sans",sans-serif;text-align:left;box-shadow:var(--hb-e3);pointer-events:none;white-space:normal}
+.v4c .nm1 i{display:block;font-style:normal;font-weight:400;font-size:12px;line-height:16px;opacity:.85}
+.v4c .nm1.tl{left:auto;right:-8px;transform:none}.v4c .nm1.tr{left:-8px;transform:none}
+.v4c .dot:hover,.v4c .dot:focus,.v4c .arcn:hover,.v4c .arcn:focus{z-index:30;opacity:1}
+.v4c .dot:hover .nm1,.v4c .dot:focus .nm1,.v4c .arcn:hover .nm1,.v4c .arcn:focus .nm1{display:block}
+.v4c .dot:focus,.v4c .arcn:focus{outline:none}
+.v4c__lg{display:grid;gap:14px;align-content:start}
+.v4c__lg h3{margin:0;font:600 18px/24px "Geologica",sans-serif}
+.v4c__lg ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;grid-auto-flow:row}
+.v4c .lgi{display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 8px;align-items:center;width:100%;box-sizing:border-box;padding:6px 8px;border:1px solid var(--hb-line);border-radius:var(--hb-r-m);background:var(--hb-paper);cursor:pointer;color:var(--hb-ink);transition:opacity .15s,box-shadow .15s}
+.v4c .lgi:hover{border-color:var(--hb-control)}
+.v4c .lgi .sw{grid-row:1/3;display:grid;place-items:center;width:28px;height:28px;border-radius:999px;background:var(--bc);color:var(--bt);font:600 11px/1 "IBM Plex Sans",sans-serif}
+.v4c .lgi b{font:600 13px/16px "Geologica",sans-serif;overflow-wrap:anywhere}
+.v4c .lgi .cnt{font-size:12px;line-height:16px;color:var(--hb-ink-2)}
+.v4c .how{display:grid;gap:8px;margin:0;padding:12px 14px;border-radius:var(--hb-r-m);background:var(--hb-sunken);font-size:14px;line-height:20px;color:var(--hb-ink-2)}
+.v4c .how p{margin:0;display:flex;gap:10px;align-items:center}
+.v4c .how .s1,.v4c .how .s2{flex:none;border-radius:999px;border:2px solid var(--hb-control)}
+.v4c .how .s1{width:20px;height:20px;background:var(--hb-control)}.v4c .how .s2{width:14px;height:14px;background:var(--hb-paper)}
+.v4c .how .s3{flex:none;width:20px;height:10px;border-radius:5px;background:var(--hb-control);opacity:.6}
+@media (max-width:899px){
+  .v4c{grid-template-columns:minmax(0,1fr);gap:16px}
+  .v4c__lg ul{grid-template-columns:minmax(0,1fr)}
+  .v4c .lgi{grid-template-columns:auto minmax(0,1fr) auto;padding:6px 10px}
+  .v4c .lgi .sw{grid-row:auto}.v4c .lgi .cnt{font-size:13px;white-space:nowrap}
+  .v4c .lgi b{font-size:14px}
+  .v4c .dot .nm1,.v4c .arcn .nm1{max-width:180px;font-size:13px;line-height:18px;padding:6px 10px}
+  .v4c .rl{min-width:16px;height:16px;padding:0 3px;font-size:10px}
+  .v4c .dot{border-width:1.5px}
+}
+
+/* ---- v1c: дерево сверху вниз на большой сети ---- */
+.vc{display:grid;gap:8px;min-width:0}
+.vc__in{min-width:100%}
+.vc__top{display:grid;justify-items:center;width:max-content}
+.vc .you{display:inline-flex;align-items:center;padding:10px 24px;border-radius:var(--hb-r-pill);background:var(--hb-jade);color:var(--hb-on-jade);font:600 18px/24px "Geologica",sans-serif}
+.vc .stub{width:0;height:22px;border-left:2px solid var(--hb-control)}
+.vc__l1{list-style:none;margin:0;padding:0}
+.vc__l1>li{position:relative;box-sizing:border-box;transition:opacity .15s}
+.vc .kids{display:grid}
+.vc .kr{display:grid;grid-template-columns:repeat(var(--d),12px) minmax(0,1fr);align-items:stretch}
+.vc .g{position:relative;display:block}
+.vc .g.v::before,.vc .g.e::before,.vc .g.l::before{content:"";position:absolute;left:5px;top:0;bottom:0;border-left:2px solid var(--bc)}
+.vc .g.l::before{bottom:50%}
+.vc .g.e::after,.vc .g.l::after{content:"";position:absolute;left:5px;right:-2px;top:50%;border-top:2px solid var(--bc)}
+.vc .n2{position:relative;display:flex;gap:6px;align-items:center;min-width:0;height:26px;margin:3px 0;padding:0 8px 0 5px;border-radius:999px}
+.vc .n2 .lv{width:17px;height:17px;font-size:11px}
+.vc .n2 b{min-width:0;flex:1 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:500 12px/16px "IBM Plex Sans",sans-serif}
+.vc .n2 .dt{flex:none;width:9px;height:9px}
+.vc .n2 .nf{display:none}
+.vc .l1c{border-left-color:var(--bc)}
+.vc .l1c .badge{white-space:nowrap}
+.vc .n2:hover,.vc .n2:focus{border-color:var(--bc);box-shadow:0 0 0 2px var(--hb-paper),0 0 0 3px var(--bc)}
+.vc .n2::after{content:attr(data-tip);display:none;position:absolute;left:calc(100% + 6px);top:50%;transform:translateY(-50%);z-index:30;width:max-content;max-width:230px;padding:6px 10px;border-radius:var(--hb-r-s);background:var(--hb-ink);color:var(--hb-paper);font:500 13px/18px "IBM Plex Sans",sans-serif;box-shadow:var(--hb-e3);pointer-events:none;white-space:normal}
+.vc .n2:hover::after,.vc .n2:focus::after{display:block}
+.vc .vc-hint{display:flex;gap:8px;align-items:center;margin:0}
+@media (min-width:900px){
+  .vc__sc{overflow-x:auto;overflow-y:hidden;border:1px solid var(--hb-line);border-radius:var(--hb-r-m);background:var(--hb-paper);padding:16px 16px 20px}
+  .vc__in{width:100%;min-width:max-content}
+  .vc__top{position:sticky;left:16px;z-index:4;margin-left:8px}
+  .vc__l1{display:flex;align-items:flex-start}
+  .vc__l1>li{flex:1 1 var(--w);min-width:var(--w);padding:24px 5px 0}
+  .vc__l1>li::before{content:"";position:absolute;top:0;left:0;right:0;border-top:2px solid var(--hb-control)}
+  .vc__l1>li:first-child::before{left:0}.vc__l1>li:last-child::before{right:50%}
+  .vc__l1>li::after{content:"";position:absolute;top:0;left:50%;height:24px;border-left:2px solid var(--hb-control);margin-left:-1px}
+  .vc .l1c{padding:8px 10px 8px 12px;gap:3px}
+  .vc .l1c b{font-size:14px;line-height:18px}
+  .vc .l1c .badge{font-size:11px;padding:2px 6px;letter-spacing:0;text-transform:none;font-weight:600}
+  .vc .l1c .wr{font-size:13px}
+  .vc .kids{margin-top:6px}
+}
+@media (max-width:899px){
+  .vc__sc{overflow:visible}
+  .vc__top{width:auto;justify-items:start}
+  .vc .stub{display:none}
+  .vc__l1{display:block;margin-left:18px}
+  .vc__l1>li{padding:0 0 12px 22px}
+  .vc__l1>li:last-child{padding-bottom:0}
+  .vc__l1>li::before{content:"";position:absolute;left:0;top:24px;width:20px;border-top:2px solid var(--hb-control)}
+  .vc__l1>li::after{content:"";position:absolute;left:0;top:0;bottom:0;border-left:2px solid var(--hb-control)}
+  .vc__l1>li:last-child::after{bottom:auto;height:25px}
+  .vc .kids{padding-left:6px;margin-top:6px}
+  .vc .kr{grid-template-columns:repeat(var(--d),14px) minmax(0,1fr)}
+  .vc .g::before{left:6px!important}.vc .g.e::after,.vc .g.l::after{left:6px!important}
+  .vc .n2 .ns{display:none}.vc .n2 .nf{display:block}
+  .vc .n2::after{left:auto;right:0;top:calc(100% + 4px);transform:none}
+  .vc .vc-hint{display:none}
+}
+
+/* ---- переключатель вида карты (seg из кита) ---- */
+.mx .mx-sw{display:flex}
+.mx .mx-sw .seg{min-width:340px}
+@media (max-width:899px){.mx .mx-sw .seg{display:flex;width:100%;min-width:0}}
+.v4c:has(.b-m:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-m){opacity:.2}.v4c:has(.b-m:is(:hover,:focus)) .sp.b-m{opacity:1}.v4c:has(.b-m:is(:hover,:focus)) .dot.b-m,.v4c:has(.b-m:is(:hover,:focus)) .lgi.b-m{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
+.v4c:has(.b-e:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-e){opacity:.2}.v4c:has(.b-e:is(:hover,:focus)) .sp.b-e{opacity:1}.v4c:has(.b-e:is(:hover,:focus)) .dot.b-e,.v4c:has(.b-e:is(:hover,:focus)) .lgi.b-e{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
+.v4c:has(.b-r:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-r){opacity:.2}.v4c:has(.b-r:is(:hover,:focus)) .sp.b-r{opacity:1}.v4c:has(.b-r:is(:hover,:focus)) .dot.b-r,.v4c:has(.b-r:is(:hover,:focus)) .lgi.b-r{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
+.v4c:has(.b-t:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-t){opacity:.2}.v4c:has(.b-t:is(:hover,:focus)) .sp.b-t{opacity:1}.v4c:has(.b-t:is(:hover,:focus)) .dot.b-t,.v4c:has(.b-t:is(:hover,:focus)) .lgi.b-t{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
+.v4c:has(.b-s:is(:hover,:focus)) :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-s){opacity:.2}.v4c:has(.b-s:is(:hover,:focus)) .sp.b-s{opacity:1}.v4c:has(.b-s:is(:hover,:focus)) .dot.b-s,.v4c:has(.b-s:is(:hover,:focus)) .lgi.b-s{box-shadow:0 0 0 2px var(--hb-paper),0 0 0 4px var(--bc)}
+.vc:has(.b-m:is(:hover,:focus-within)) .br:not(.b-m){opacity:.22}
+.vc:has(.b-e:is(:hover,:focus-within)) .br:not(.b-e){opacity:.22}
+.vc:has(.b-r:is(:hover,:focus-within)) .br:not(.b-r){opacity:.22}
+.vc:has(.b-t:is(:hover,:focus-within)) .br:not(.b-t){opacity:.22}
+.vc:has(.b-s:is(:hover,:focus-within)) .br:not(.b-s){opacity:.22}
+/* «Показать на карте сети»: подсветка ветки человека в обоих видах, после правил наведения */
+.v4c.hl-b-m :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-m){opacity:.2}.v4c.hl-b-m .sp.b-m{opacity:1}.v4c.hl-b-m .dot.b-m.l1,.v4c.hl-b-m .lgi.b-m{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.vc.hl-b-m .br:not(.b-m){opacity:.22}.vc.hl-b-m .br.b-m .l1c{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.v4c.hl-b-e :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-e){opacity:.2}.v4c.hl-b-e .sp.b-e{opacity:1}.v4c.hl-b-e .dot.b-e.l1,.v4c.hl-b-e .lgi.b-e{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.vc.hl-b-e .br:not(.b-e){opacity:.22}.vc.hl-b-e .br.b-e .l1c{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.v4c.hl-b-r :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-r){opacity:.2}.v4c.hl-b-r .sp.b-r{opacity:1}.v4c.hl-b-r .dot.b-r.l1,.v4c.hl-b-r .lgi.b-r{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.vc.hl-b-r .br:not(.b-r){opacity:.22}.vc.hl-b-r .br.b-r .l1c{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.v4c.hl-b-t :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-t){opacity:.2}.v4c.hl-b-t .sp.b-t{opacity:1}.v4c.hl-b-t .dot.b-t.l1,.v4c.hl-b-t .lgi.b-t{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.vc.hl-b-t .br:not(.b-t){opacity:.22}.vc.hl-b-t .br.b-t .l1c{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.v4c.hl-b-s :is(.dot,.sp,.wg,.arc,.arcn,.lgi):not(.b-s){opacity:.2}.v4c.hl-b-s .sp.b-s{opacity:1}.v4c.hl-b-s .dot.b-s.l1,.v4c.hl-b-s .lgi.b-s{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.vc.hl-b-s .br:not(.b-s){opacity:.22}.vc.hl-b-s .br.b-s .l1c{box-shadow:0 0 0 3px var(--hb-paper),0 0 0 5px var(--bc)}
+.mx .mx-hl .btn{margin-left:auto;flex:none}
+.v4c .dot:focus,.v4c .arcn:focus{z-index:30}
+/* Начало работы: шаг «Подключите Telegram-бота» занимает всю строку, QR и кнопка под названием шага */
+.nb__list > li:has(.nb__tg) { grid-column: 1 / -1; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: start; }
+.nb__tg { grid-column: 2 / -1; grid-row: 2; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding-bottom: 8px; }
+/* Карта сети на узких экранах: сводка по три в ряд */
+@media (max-width: 899px) {
+  .mx .mx-sum { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mx .mx-sum > div:nth-child(4) { border-left: 0; }
+  .mx .mx-sum > div:nth-child(n+4) { border-top: 1px solid var(--hb-line); }
+}
