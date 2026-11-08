@@ -8460,3 +8460,7 @@ pre.codeline { font-weight: 400; }
 
 /* .tbl th .note - вторая строка в ячейке-заголовке строки (клиент: «Ищет: ...») обычным весом, а не жирным заголовка. Экраны: klienty. */
 .tbl tbody th[scope="row"] .note { font-weight: 400; }
+
+/* .tbl--open .rowopen - растяжка кнопки привязана к ячейке имени, а не к tr: в Safari tr не становится опорным блоком, и растяжки всех строк
+   ложились на таблицу (подсвечивалась и открывалась нижняя строка). Клик в остальных ячейках строки ловит dc.js. Только таблица, на телефоне (.tbl--stack) tr это блок. Экраны: klienty, moya-set. */
+@media (min-width: 640px) { .tbl--open tbody th[scope="row"] { position: relative; } }

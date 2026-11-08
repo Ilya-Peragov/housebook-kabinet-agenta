@@ -388,6 +388,14 @@
     w.addEventListener('scroll', sync, { passive: true });
     w.addEventListener('resize', sync);
   }
+  /* строка .tbl--open открывает панель по клику в любой ячейке: растяжка кнопки на всю строку держится на tr, а часть браузеров (Safari) не делает tr
+     опорным блоком, поэтому на десктопе растяжка только в ячейке имени, остальное добирает этот обработчик; кнопки, ссылки и поля внутри строки не трогаем */
+  d.addEventListener('click', function (e) {
+    var tr = e.target.closest && e.target.closest('.tbl--open tbody tr');
+    if (!tr || e.target.closest('a, button, input, select, label, .cs')) return;
+    var b = tr.querySelector('.rowopen');
+    if (b) b.click();
+  });
   d.addEventListener('click', function (e) {
     var t = e.target;
     if (t && t.hasAttribute && t.hasAttribute('data-scrim')) { var x = t.querySelector('[aria-label="Закрыть"]'); if (x) { x.click(); return; } }
