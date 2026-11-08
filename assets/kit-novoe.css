@@ -8751,3 +8751,56 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 }
 /* .bub p - переносы строк из поля ввода сохраняются в пузыре, длинные слова переносятся. */
 .bub p { white-space: pre-wrap; overflow-wrap: anywhere; }
+
+/* .md - сообщение с разметкой Markdown: жирный, курсив, зачёркнутый, код, блок кода, ссылки, списки, цитата; переносы строк сохраняются. Экраны: soobshcheniya, soobshcheniya-chat. */
+.bub .md { display: grid; gap: 4px; margin: 0; font-size: var(--hb-fs-text); line-height: var(--hb-lh-text); color: var(--hb-ink); white-space: pre-wrap; overflow-wrap: anywhere; }
+.bub .md > * { margin: 0; min-width: 0; }
+.bub .md a { color: var(--hb-accent-text); text-decoration: underline; }
+.bub .md code { padding: 1px 5px; border-radius: var(--hb-r-xs); background: var(--hb-sunken); font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; font-size: .92em; }
+.bub .md .md__pre { padding: 8px 10px; border-radius: var(--hb-r-m); background: var(--hb-sunken); border: 1px solid var(--hb-line); overflow-x: auto; white-space: pre; }
+.bub .md .md__pre code { padding: 0; background: none; }
+.bub .md .md__q { padding-inline-start: 10px; border-inline-start: 3px solid var(--hb-accent); color: var(--hb-ink-2); }
+.bub .md .md__l { padding-inline-start: 22px; white-space: normal; }
+.bub .md .md__l li + li { margin-top: 2px; }
+
+/* .att, .mfiles, .mf, .is-drop - вложения в сообщениях: превью картинок и карточки файлов в пузыре и над строкой ввода, зона «Отпустите, чтобы прикрепить» при перетаскивании файла. Экраны: soobshcheniya, soobshcheniya-chat. */
+.mlayout__r { position: relative; }
+.mlayout__r.is-drop::after { content: "Отпустите, чтобы прикрепить"; position: absolute; inset: 8px; z-index: 5; display: grid; place-items: center; border: 2px dashed var(--hb-accent); border-radius: var(--hb-r-l); background: color-mix(in srgb, var(--hb-paper) 80%, transparent); color: var(--hb-accent-text); font: 600 var(--hb-fs-text)/var(--hb-lh-text) var(--font-ui); pointer-events: none; }
+.bub .att { display: grid; gap: 6px; }
+.att__img { display: block; padding: 0; border: 0; border-radius: var(--hb-r-m); overflow: hidden; background: var(--hb-sunken); cursor: zoom-in; }
+.att__img img { display: block; width: 100%; max-width: 320px; max-height: 280px; object-fit: cover; }
+.att__f, .mf { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.att__ic, .mf__ic { display: inline-grid; place-items: center; flex: none; width: 36px; height: 36px; border-radius: var(--hb-r-m); background: var(--hb-sunken); color: var(--hb-ink-2); }
+.att__n, .mf__n { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: var(--hb-fs-small); line-height: var(--hb-lh-small); color: var(--hb-ink); }
+.att__s, .mf__s { flex: none; font-size: var(--hb-fs-cap); line-height: var(--hb-lh-cap); color: var(--hb-ink-2); }
+.mfiles { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 8px; max-height: 132px; overflow-y: auto; }
+.mf { width: 240px; max-width: 100%; box-sizing: border-box; padding: 6px 6px 6px 8px; border: 1px solid var(--hb-line); border-radius: var(--hb-r-m); background: var(--hb-sunken); }
+.mf__th { flex: none; width: 36px; height: 36px; border-radius: var(--hb-r-s); object-fit: cover; }
+.mfiles__e { grid-column: 1 / -1; margin: 0; font-size: var(--hb-fs-cap); line-height: var(--hb-lh-cap); font-weight: 500; color: var(--hb-err); }
+.zoom__img { display: block; max-width: 100%; max-height: 70dvh; margin-inline: auto; border-radius: var(--hb-r-m); }
+
+/* .tj - таблица списка из одной шапки и таблиц-строк: sc-for стоит вокруг целой строки-таблицы, а не внутри tbody, поэтому обычный HTML-парсер холста его не выбрасывает.
+   Колонки у шапки и строк одни (colgroup, table-layout: fixed), рамки склеены в одну таблицу; на телефоне шапка скрыта, строки карточками (.tbl--stack). Экраны: klienty, klienty-forma, klienty-kartochka, moya-set. */
+.tfix { table-layout: fixed; width: 100%; }
+.tj > .tbl { border-radius: 0; }
+.tj > .tbl + .tbl { margin-top: -1px; }
+.tj > .tbl:first-child { border-radius: var(--hb-r-l) var(--hb-r-l) 0 0; }
+.tj > .tbl:last-child { border-radius: 0 0 var(--hb-r-l) var(--hb-r-l); }
+.tj > .tbl--row:hover { position: relative; z-index: 0; }
+@media (max-width: 639px) {
+  .tj--stack { display: grid; gap: 10px; }
+  .tj--stack > .tbl, .tj--stack > .tbl:first-child, .tj--stack > .tbl:last-child { border-radius: 0; }
+  .tj--stack > .tbl + .tbl { margin-top: 0; }
+  .tj--stack > .tbl--head { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+}
+
+/* .dlg - строка чата как в мессенджерах: имя и метка роли, справа время; ниже превью одной строкой и счётчик; высота у всех одинаковая. Подробная роль только в шапке открытого чата. Экраны: soobshcheniya, soobshcheniya-chat. */
+.dlg { grid-template-rows: auto auto; align-content: center; min-height: 72px; row-gap: 2px; }
+.dlg__av { grid-row: 1 / 3; }
+.dlg__n { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.dlg__n > b { flex: 0 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-weight: 600; }
+.dlg__n > .dlg__tag { flex: none; }
+.dlg__p { grid-row: 2; grid-column: 2; min-width: 0; }
+.dlg__u { grid-row: 2; grid-column: 3; }
+.bub .md ul.md__l { list-style: disc; }
+.bub .md ol.md__l { list-style: decimal; }
