@@ -8825,3 +8825,16 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 /* p .btn.btn--link - ссылка-кнопка внутри строки текста: в строке, без отступов и высоты кнопки. Экраны: dengi, dengi-pusto (шаг 1 «Как получить выплату»). */
 p .btn.btn--link { display: inline !important; padding: 0 !important; min-height: 0 !important; height: auto !important; vertical-align: baseline; text-align: start; font: inherit; font-weight: 600; }
 p .btn.btn--link > span { display: inline; }
+
+/* Главная новичка: карточка шага задаёт высоту ряда, видео справа компактное (16:9, до 200px), под метками строка «зачем». Экраны: glavnaya-novichok. */
+.nb__next p.nb__why { font-size: var(--hb-fs-small); line-height: var(--hb-lh-small); color: var(--hb-ink-2); }
+.nb__grid { grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr); align-items: stretch; }
+.nb .vcard { height: 100%; align-self: stretch; grid-template-rows: minmax(0, 1fr) auto; align-content: stretch; }
+.nb .vcard__p { aspect-ratio: auto; min-height: 120px; max-height: 200px; }
+@media (max-width: 899px) { .nb__grid { grid-template-columns: minmax(0, 1fr); } .nb .vcard { height: auto; } .nb .vcard__p { aspect-ratio: 16 / 9; min-height: 0; max-height: none; } }
+
+/* Шаг Telegram: QR внутри карточки «Следующий шаг» (96px) с подписью, кнопка «Открыть в Telegram». Экраны: glavnaya-novichok. */
+.nb__qr { display: flex; align-items: center; gap: 12px; }
+.nb__qr .qrbox { flex: none; margin: 0; }
+.nb__qr .qrbox svg { width: 96px; height: 96px; padding: 6px; }
+.nb__next .nb__qr p { margin: 0; font-size: var(--hb-fs-small); line-height: var(--hb-lh-small); color: var(--hb-ink-2); }
