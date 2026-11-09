@@ -8838,3 +8838,66 @@ p .btn.btn--link > span { display: inline; }
 .nb__qr .qrbox { flex: none; margin: 0; }
 .nb__qr .qrbox svg { width: 96px; height: 96px; padding: 6px; }
 .nb__next .nb__qr p { margin: 0; font-size: var(--hb-fs-small); line-height: var(--hb-lh-small); color: var(--hb-ink-2); }
+
+/* ===== FB-033: ссылка приглашения, Команда, меню, фильтры Объектов ===== */
+.inv-link{padding:16px 20px}
+.inv-link__row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:stretch}
+.inv-link__btns{display:flex;gap:8px;flex-wrap:nowrap}
+@media (max-width:899px){.inv-link{padding:14px}.inv-link__row{grid-template-columns:minmax(0,1fr)}.inv-link__btns .btn{flex:1 1 0;min-width:0;padding-left:8px;padding-right:8px}.inv-link__btns .ic{display:none}}
+.kl-prev--st li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr) minmax(0,1.1fr) minmax(0,.8fr);gap:8px;align-items:start;overflow-wrap:anywhere;font-size:13px}
+@media (max-width:599px){.kl-prev--st li{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.kl-prev--st .kl-prev__h{display:none}}
+.kl-prev__h{background:var(--hb-sunken);color:var(--hb-ink-2);font-size:13px}
+.nm-upd{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.nm-upd li{display:grid;gap:2px;padding:10px 12px;border:1px solid var(--hb-line);border-radius:var(--hb-r-m)}
+.nm-upd b{font-weight:600;font-size:13px;color:var(--hb-ink-2)}
+.nm-row{display:flex;flex-wrap:wrap;gap:8px}
+.knav--foot{margin-top:auto;padding-top:8px;border-top:1px solid var(--hb-line)}
+.field__l{display:block;margin-bottom:6px;font-weight:500}
+.ofx{display:grid;gap:12px}
+.ofx .field{position:relative;min-width:0}
+.ofx .kl-cs{position:relative}
+.ofx .cs{min-width:0}
+.ofx .cs__pop{z-index:30}
+.ofx__main{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px;align-items:end}
+.ofx__main>*{min-width:0}
+.ofx__main>.field{grid-column:span 2}
+.ofx__main>.ofx__q{grid-column:span 4}
+.ofx__main>.ofx__bud{grid-column:span 6}
+.ofx__main>.ofx__more{grid-column:span 3}
+.ofx__mob,.ofx__m,.ofx__scrim,.ofx__t-m{display:none}
+.ofx__bud-in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) 112px;gap:8px}
+.ofx__panel{display:grid;gap:16px;padding:16px 20px;border:1px solid var(--hb-line);border-radius:var(--hb-r-l);background:var(--hb-paper)}
+.ofx__ph{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ofx__ph h2{margin:0}
+.ofx__pb{display:grid;gap:14px}
+.ofx__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 20px;align-items:start}
+.ofx__wide{grid-column:1/-1}
+.ofx__rng{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+.ofx__pf{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.ofx__chip{display:inline-flex;align-items:center;gap:6px}
+.ofx__share{display:flex;flex-wrap:wrap;align-items:center;gap:6px 16px}
+.ofx__share .note{margin:0}
+.ofx__share .ofx__sc{margin-inline-start:auto}
+.ofx__sc{display:flex;flex-wrap:wrap;gap:12px;margin-inline-start:auto}
+.ofx__sc .field{display:flex;align-items:center;gap:8px}
+.ofx__sc .field__l{margin:0;white-space:nowrap}
+.ofx__sc .cs,.ofx__sc .cs__btn{min-width:168px}
+@media (min-width:900px) and (max-width:1099px){.ofx__main>.field{grid-column:span 4}.ofx__main>.ofx__q{grid-column:1/-1}.ofx__main>.ofx__bud{grid-column:span 8}.ofx__main>.ofx__more{grid-column:span 4}.ofx__grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:899px){
+.ofx__main{grid-template-columns:minmax(0,1fr) auto;gap:10px}
+.ofx__main>.field:not(.ofx__q),.ofx__main>.ofx__more{display:none}
+.ofx__main>.ofx__q{grid-column:auto}
+.ofx__mob{display:inline-flex}
+.ofx__wrap{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center}
+.ofx__scrim{display:block;position:absolute;inset:0;border:0;padding:0;background:rgba(18,21,23,.45)}
+.ofx__panel{position:relative;width:100%;max-height:90dvh;grid-template-rows:auto minmax(0,1fr) auto;padding:16px;border-radius:20px 20px 0 0;overflow:hidden}
+.ofx__pb{overflow:auto;align-content:start;padding-bottom:6px}
+.ofx__m{display:grid;gap:14px}
+.ofx__grid{grid-template-columns:minmax(0,1fr)}
+.ofx__t-d{display:none}
+.ofx__t-m{display:inline}
+.ofx__pf .btn{flex:1 1 0}
+.ofx__sc{margin-inline-start:0;width:100%}
+.ofx__sc .field{flex:1 1 140px}
+.ofx__sc .cs,.ofx__sc .cs__btn{min-width:0;width:100%}
+}

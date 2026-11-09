@@ -400,7 +400,7 @@
     var t = e.target;
     if (t && t.hasAttribute && t.hasAttribute('data-scrim')) { var x = t.querySelector('[aria-label="Закрыть"]'); if (x) { x.click(); return; } }
     var a = e.target.closest && e.target.closest('a[href]');
-    if (!a) return;
+    if (!a || a.getAttribute('role') === 'button') return;
     var h = a.getAttribute('href');
     if (h === '#') { e.preventDefault(); toast('В прототипе этот раздел не открывается'); }
     else if (/^(https?:|tel:|mailto:)/i.test(h)) { e.preventDefault(); toast('В прототипе ссылка не открывается, ничего не отправляется'); }
