@@ -8943,3 +8943,27 @@ p .btn.btn--link > span { display: inline; }
 .ocard__box{width:16px;height:16px;border-width:2px;border-radius:4px}
 .ocard__box .ic{width:12px;height:12px}
 @media (pointer: coarse){.ocard__pick{min-height:var(--hb-h-s,32px)}.ocard__pick{min-height:32px}.ocard__pick::before{inset:-8px}}
+
+/* Клиенты: требования Ирины (BIT-145) */
+.kl-tags{display:flex;flex-wrap:wrap;gap:8px}
+.kl-act{display:flex;flex-wrap:wrap;gap:8px}
+.kl-cats{display:flex;flex-wrap:wrap;gap:8px}
+.kl-no{font-variant-numeric:tabular-nums}
+.kl-tree{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.kl-tree>li{display:grid;gap:8px;padding:12px 16px;border:1px solid var(--hb-line);border-radius:var(--hb-r-m)}
+.kl-tree ul{margin:0;padding:0 0 0 16px;list-style:none;display:grid;gap:4px}
+.kl-tree ul li{display:flex;align-items:center;gap:8px}
+.kl-tree ul li::before{content:"";flex:0 0 8px;width:8px;height:8px;border-radius:50%;background:var(--hb-line)}
+.kl-st{display:grid;gap:4px}
+.kl-st p{margin:0}
+@media (max-width:1099px){.tcell--sec{display:none!important}}
+@media (max-width:1099px){#kl .tfix col:nth-child(n+4):nth-child(-n+7){display:none}#kl .tfix col:nth-child(2){width:26%!important}#kl .tfix col:nth-child(3){width:14%!important}#kl .tfix col:nth-child(8){width:20%!important}}
+.kl-no{white-space:nowrap}
+.tbl th,.tbl td,.tj th,.tj td{word-break:normal;overflow-wrap:normal;hyphens:manual}
+.tbl thead th,.tj thead th{white-space:nowrap;vertical-align:bottom}
+.kl-grp{display:grid;gap:8px}
+.kl-grp>.field__l{margin:0}
+.kl-kp{display:grid;gap:16px;padding:16px;border:1px solid var(--hb-line);border-radius:var(--hb-r-m)}
+
+/* BIT-145: слова в таблицах и карточках не рвутся по буквам; anywhere остаётся для ссылок и адресов */
+.mcard__l,.ocard__w span,.ocard__s,.pcard__who h3 span{overflow-wrap:normal}
