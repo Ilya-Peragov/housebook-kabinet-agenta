@@ -8857,7 +8857,7 @@ p .btn.btn--link > span { display: inline; }
 .ofx__q{flex:1 1 160px;min-width:140px;max-width:360px}
 .ofx__pills{display:contents}
 .ofx__pw{position:relative;display:inline-flex;flex:none}
-.ofx__pill{min-height:var(--hb-h-m);white-space:nowrap;position:relative}
+.ofx__pill{white-space:nowrap;position:relative}
 .ofx__pill .ic{flex:none}
 .ofx__pill.is-on{border-color:var(--hb-sel-bd);background:var(--hb-sel-bg);color:var(--hb-sel-fg);padding-inline-end:36px}
 .ofx__pw.is-on .ofx__chev{display:none}
@@ -8892,9 +8892,8 @@ p .btn.btn--link > span { display: inline; }
 .ofx__chip{display:inline-flex;align-items:center;gap:6px}
 .ofx__r2r{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-inline-start:auto}
 .ofx__seg-m,.ofx__t-m{display:none}
-.ofx__r2r .seg>button{padding:0 10px}
-.ofx__r2 .btn--quiet{padding:0 10px}
 @media (max-width:899px){
+.ofx__pill{min-height:var(--hb-h-touch)}
 .ofx{grid-template-columns:minmax(0,1fr)}
 .ofx__bar{min-width:0}
 .ofx__q{flex:1 1 0;min-width:0;max-width:none}
