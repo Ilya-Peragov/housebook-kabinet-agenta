@@ -8964,6 +8964,13 @@ p .btn.btn--link > span { display: inline; }
 .kl-grp{display:grid;gap:8px}
 .kl-grp>.field__l{margin:0}
 .kl-kp{display:grid;gap:16px;padding:16px;border:1px solid var(--hb-line);border-radius:var(--hb-r-m)}
+.kl-chv{vertical-align:middle;margin-left:4px;transition:transform .15s}
+.kl-chv.is-open{transform:rotate(180deg)}
+.kl-sub th,.kl-sub td{background:var(--hb-sunken)}
+.kl-lad>ol{grid-template-columns:repeat(3,minmax(0,1fr))}
+.strack>ol:has(>li:nth-child(8)){grid-template-columns:repeat(8,minmax(0,1fr))}
+@media (max-width:639px){.kl-sub td.kl-nosel{display:none}}
+@media (max-width:1099px){.kl-fix col:nth-child(4){display:none}}
 
 /* BIT-145: слова в таблицах и карточках не рвутся по буквам; anywhere остаётся для ссылок и адресов */
 .mcard__l,.ocard__w span,.ocard__s,.pcard__who h3 span{overflow-wrap:normal}
@@ -8976,3 +8983,25 @@ p .btn.btn--link > span { display: inline; }
 
 .fnr{grid-template-columns:minmax(0,2fr) minmax(0,1fr) 2.5em}
 .fnr .lrow__b > b{white-space:normal;overflow:visible;text-overflow:clip}
+
+/* Объекты: фильтры как в каталоге */
+.ofx__q2{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.ofx__ms{position:relative}
+.ofx__mp{position:absolute;top:calc(100% + 4px);left:0;right:0;width:auto;max-width:none;z-index:3}
+.ofx__mp .cs__opt{display:flex;align-items:center;gap:8px}
+.ofx__mp .cs__opt.is-dis{opacity:.45;cursor:not-allowed}
+.ofx__msaway{position:fixed;inset:0;z-index:2;border:0;padding:0;background:transparent;cursor:default}
+.ofx__ms:has(.ofx__mp){z-index:3}
+.ofx__grp{gap:16px;padding-top:24px;border-top:1px solid var(--hb-line)}
+.ofx__sub2{display:grid;gap:8px}
+.ofx__lbl{font-size:var(--hb-fs-small);line-height:20px;font-weight:600}
+.ofx__dr .drawer__head .ofx__rs{margin-inline-start:auto}
+.ofx__grp .note{margin:0}
+.ofx__q{flex:1 1 280px;min-width:260px;max-width:420px}
+@media (max-width:899px){
+.ofx__q{flex:1 1 0;min-width:0;max-width:none}
+.ofx__q2{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;width:calc(100% + 16px);margin-inline-end:-16px;padding-inline-end:16px}
+.ofx__q2::-webkit-scrollbar{display:none}
+.ofx__q2 .pill{flex:none;white-space:nowrap}
+.ofx__all .badge{display:none}
+}
