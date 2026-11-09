@@ -8967,3 +8967,12 @@ p .btn.btn--link > span { display: inline; }
 
 /* BIT-145: слова в таблицах и карточках не рвутся по буквам; anywhere остаётся для ссылок и адресов */
 .mcard__l,.ocard__w span,.ocard__s,.pcard__who h3 span{overflow-wrap:normal}
+
+/* воронка: «Покупка отложена» отдельно, мелко */
+.fnl__aside{margin-top:8px;padding-top:8px;border-top:1px dashed var(--hb-line)}
+.fnl__aside .lrow__b{display:flex !important;align-items:baseline;gap:8px;grid-column:1 / 3}
+.fnl__aside .lrow__b > b{color:var(--hb-ink-2)}
+.fnl__aside .note{margin:0}
+
+.fnr{grid-template-columns:minmax(0,2fr) minmax(0,1fr) 2.5em}
+.fnr .lrow__b > b{white-space:normal;overflow:visible;text-overflow:clip}
