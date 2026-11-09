@@ -1592,7 +1592,7 @@ span.avatar.pf-av {
 }
 .nv-pop__l small {
   color: var(--hb-ink-2);
-  font-size: 12px;
+  font-size: 13px;
 }
 .nv-pop__l li.is-new a {
   background: var(--hb-tint);
@@ -2564,7 +2564,7 @@ span.avatar.pf-av {
   outline-offset: 2px;
 }
 .mst__ch .chart__c>b {
-  font-size: 12px;
+  font-size: 13px;
   line-height: 16px;
   font-weight: 600;
   color: var(--hb-ink);
@@ -2596,7 +2596,7 @@ span.avatar.pf-av {
 }
 .mst__ch .chart__c span.mst__lb {
   min-height: 36px;
-  font-size: 12px;
+  font-size: 13px;
   line-height: 16px;
   color: var(--hb-ink-2);
 }
@@ -8716,13 +8716,13 @@ a.fnr > .lrow__m{grid-column:3 !important;grid-row:1 !important}
 /* .mcomp, .bub, .mchips, .dlg__p - переписка как в привычных мессенджерах: строка ввода (скрепка, поле до 6 строк, круглая «Отправить», активна только с текстом), пузыри с временем и галочками внутри, хвост у последнего в серии, чипы над строкой ввода, превью чата одной строкой. Экраны: soobshcheniya, soobshcheniya-chat. */
 .mlayout__r { grid-template-rows: auto minmax(0, 1fr) auto auto; }
 .mlayout__r > .mchips { flex-wrap: wrap; gap: 8px; margin: 0; padding: 8px 16px 0; border-top: 1px solid var(--hb-line); background: var(--hb-paper); }
-.mcomp { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: end; padding: 12px 16px; }
+.mcomp { grid-template-columns: auto minmax(0, 1fr) auto; gap: 8px; align-items: start; padding: 12px 16px; }
 .mchips + .mcomp { border-top: 0; }
 .mcomp .btn--icon { flex: none; }
 .mcomp__att { color: var(--hb-ink-2); }
 .mcomp__f { min-width: 0; }
-.mcomp .textarea { display: block; width: 100%; box-sizing: border-box; min-height: 44px; max-height: 168px; padding-block: 12px; line-height: 24px; overflow-y: auto; resize: none; border-radius: 24px; }
-.mcomp .btn.mcomp__send { width: 44px; min-width: 44px; height: 44px; padding: 0; }
+.mcomp .textarea { display: block; width: 100%; box-sizing: border-box; overflow-y: auto; resize: none; }
+
 .mcomp .btn.mcomp__send:disabled { opacity: .4; cursor: default; }
 .bub { gap: 4px; padding: 8px 12px 8px; min-width: 84px; }
 .bub time { justify-self: end; display: inline-flex; align-items: center; gap: 4px; }
@@ -8853,7 +8853,26 @@ p .btn.btn--link > span { display: inline; }
 .knav__end{padding-top:8px;border-top:1px solid var(--hb-line)}
 .field__l{display:block;margin-bottom:8px;font-weight:500}
 /* проба владельца 09.11: кит поуже, шкала кратна 4 и 8 (только прототип, src-kit не тронут) */
-:root{--hb-h-l:48px;--hb-h-m:40px;--hb-h-s:32px;--hb-h-xs:24px;--hb-h-touch:44px;--hb-top-h:64px;--hb-lh-h3:28px;--hb-lh-text:24px;--hb-r-xs:4px;--hb-r-s:8px;--hb-r-l:16px}
+:root{--hb-h-l:48px;--hb-h-m:40px;--hb-h-s:32px;--hb-h-xs:24px;--hb-h-touch:44px;--hb-top-h:64px;--hb-lh-h3:28px;--hb-lh-text:24px;--hb-r-xs:4px;--hb-r-s:8px;--hb-r-l:16px;--hb-fs-min:13px}
+/* сенсорные экраны: по типу указателя, а не по ширине; зона нажатия не меньше 48, главная кнопка 52 */
+@media (pointer: coarse){:root{--hb-h-xs:48px;--hb-h-s:48px;--hb-h-m:48px;--hb-h-l:52px;--hb-h-touch:48px}}
+@media (pointer: coarse){.chips,.phead__acts,.tbar,.tbar__end,.acts,.tabs__list{gap:8px}}
+/* поля ввода: отступ текста 16, шрифт 16/24, текст по центру */
+.input,.textarea,.select{padding-inline:16px;font-size:16px;line-height:24px}
+.select{padding-inline-end:40px}
+.input,.select{padding-block:0}
+.textarea{padding-block:calc((var(--hb-h-m) - 26px) / 2)}
+.search>.ic{left:16px}
+.search>.input,.search>.input--s{padding-left:42px}
+/* поле сообщения: общий вид инпутов, кнопки по высоте поля и по первой строке */
+.mcomp{align-items:start}
+.mcomp .textarea{min-height:var(--hb-h-m);max-height:162px;padding-block:calc((var(--hb-h-m) - 26px) / 2);padding-inline:16px;border-radius:var(--hb-r-m)}
+.mcomp .btn.mcomp__send,.mcomp .btn.mcomp__att{width:var(--hb-h-m);min-width:var(--hb-h-m);height:var(--hb-h-m);min-height:var(--hb-h-m);padding:0}
+/* размеры по ролям: фильтры над таблицами и действия в строках 32, главное действие в окнах и мастере 48 */
+.tbar :is(.input,.select,.btn,.cs__btn){min-height:var(--hb-h-s)}
+.tbl .btn:not(.btn--icon){min-height:var(--hb-h-s)}
+.tbl tr{min-height:var(--hb-h-m)}
+[role="dialog"] .btn--acc:not(.btn--icon):not(.btn--s){min-height:var(--hb-h-l)}
 .ofx{display:grid;gap:12px;position:relative}
 .ofx__bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
 .ofx__q{flex:1 1 160px;min-width:140px;max-width:360px}
@@ -8913,3 +8932,9 @@ p .btn.btn--link > span { display: inline; }
 .ofx__sec--m,.ofx__show{display:grid}
 .ofx__r2r{margin-inline-start:0}
 }
+
+@media (pointer: coarse){.btn.help-q,.phead__acts .btn.help-q{flex:0 0 48px !important;width:48px !important;min-width:48px;max-width:48px;height:48px}
+.ocard__pick,.fnr,.nrow,.sputnik,.krow__v,.kl-lnk,.w2t__link,.w2f .pill,.pt-crumb a,.pt-plans__i,.pt-link,.seg button,.seg__b,button.dl-btn,.kl-qa .btn,.sy-s-cta,.sy-sw,.ob-help{min-height:48px}
+.pt-pin,.pt-ck,.pt-chip__x,.ob-help{min-width:48px;min-height:48px}
+.sy-s-cta{height:48px}}
+@media (pointer: coarse){.more{display:inline-flex;align-items:center;min-height:48px}.tbl .check,.krow .check{display:inline-flex;align-items:center;justify-content:center;min-width:48px;min-height:48px}}
