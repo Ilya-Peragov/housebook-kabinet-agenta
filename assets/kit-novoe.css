@@ -8851,7 +8851,7 @@ p .btn.btn--link > span { display: inline; }
 .nm-upd li{display:grid;gap:2px;padding:10px 12px;border:1px solid var(--hb-line);border-radius:var(--hb-r-m)}
 .nm-upd b{font-weight:600;font-size:13px;color:var(--hb-ink-2)}
 .nm-row{display:flex;flex-wrap:wrap;gap:8px}
-.knav--foot{margin-top:auto;padding-top:8px;border-top:1px solid var(--hb-line)}
+.knav__end{padding-top:8px;border-top:1px solid var(--hb-line)}
 .field__l{display:block;margin-bottom:6px;font-weight:500}
 .ofx{display:grid;gap:12px}
 .ofx .field{position:relative;min-width:0}
