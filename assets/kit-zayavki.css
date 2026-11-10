@@ -1,0 +1,272 @@
+/* Раздел «Заявки»: правила досок zayavki* (добавки доски из макета, zk-*), поверх кита и kit-novoe.css */
+/* добавки доски */
+.hb.hb .zk-h{display:grid;gap:0;--tx:41px}
+.hb.hb .zk-hp{position:relative;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:8px 18px;align-items:center;padding:16px 20px 16px 16px;border:1px solid var(--hb-line);border-radius:var(--hb-r-l);background:var(--hb-tint)}
+.hb.hb .zk-tile{flex:none;display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--hb-tint);color:var(--hb-accent,#0a7a3a)}
+.hb.hb .zk-tile .ic{width:26px;height:26px}
+.hb.hb .zk-tile--b{background:var(--hb-sunken);color:var(--hb-ink-2)}
+.hb.hb .zk-hp .zk-tile{background:var(--hb-paper);width:48px;height:48px}
+.hb.hb .zk-hh{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font:600 18px/26px var(--font-display,inherit);color:var(--hb-ink)}
+.hb.hb .zk-hn{margin:2px 0 0;font-size:16px;color:var(--hb-ink)}
+.hb.hb .zk-hm{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:6px 0 0;color:var(--hb-ink-3);font-size:14px}
+.hb.hb .zk-hm span{display:inline-flex;align-items:center;gap:6px}
+.hb.hb .zk-hm span + span{padding-left:14px;border-left:1px solid var(--hb-line)}
+.hb.hb .zk-hp > .zk-chev{position:absolute;top:8px;right:8px}
+/* дерево: все линии строятся от центра плитки; --hx - расстояние от ствола до плитки, 2px линия, наконечник стрелки в 6px от плитки */
+.hb.hb .zk-hc{--hx:26px;position:relative;margin-left:calc(var(--tx) - 1px);padding-left:var(--hx)}
+.hb.hb .zk-hc--in{--hx:24px;margin-left:21px}
+.hb.hb .zk-hi{position:relative;display:block}
+.hb.hb .zk-hi::before{content:"";position:absolute;left:calc(var(--hx) * -1);top:0;bottom:0;border-left:2px solid var(--hb-control)}
+.hb.hb .zk-hi:last-child::before{display:none}
+.hb.hb .zk-hr{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 240px 188px 150px;gap:12px;align-items:center;height:104px;padding:14px 0;border-bottom:1px solid var(--hb-line)}
+.hb.hb .zk-hc--in .zk-hi:last-child > .zk-hr{border-bottom:0}
+.hb.hb .zk-hcell{position:relative;display:flex;align-items:center;align-self:stretch;gap:12px;min-width:0}
+.hb.hb .zk-hcell .zk-rc{flex:none;margin-left:auto}
+.hb.hb .zk-cn{position:absolute;left:calc(var(--hx) * -1);top:calc(50% - 1px);width:calc(var(--hx) - 6px);height:2px;background:var(--hb-control)}
+.hb.hb .zk-hi:last-child > .zk-hr .zk-cn{top:-14px;height:calc(50% + 15px);background:none;border-left:2px solid var(--hb-control);border-bottom:2px solid var(--hb-control);border-bottom-left-radius:12px;box-sizing:border-box}
+.hb.hb .zk-ar{position:absolute;left:-15.66px;top:calc(50% - 4px);width:8px;height:8px;box-sizing:border-box;border-top:2px solid var(--hb-control);border-right:2px solid var(--hb-control);transform:rotate(45deg)}
+.hb.hb .zk-hr--k .zk-hcell::after{content:"";position:absolute;left:21px;top:calc(50% + 22px);bottom:-15px;border-left:2px solid var(--hb-control)}
+.hb.hb .zk-h:has(> .zk-hc) > .zk-hp::after{content:"";position:absolute;left:calc(var(--tx) - 2px);top:calc(50% + 24px);bottom:-1px;border-left:2px solid var(--hb-control)}
+.hb.hb .zk-hc--in .zk-tile{width:36px;height:36px;border-radius:12px}
+.hb.hb .zk-hc--in .zk-tile .ic{width:22px;height:22px}
+.hb.hb .zk-hcell .zk-hh{font-size:14px;line-height:22px;white-space:nowrap}
+.hb.hb .zk-hr .zk-hn,.hb.hb .zk-hr .zk-hm{white-space:nowrap;margin:0}
+.hb.hb .zk-hr .zk-hm{margin-top:2px}
+.hb.hb .zk-hg .zk-mg{align-items:center}
+.hb.hb .zk-hs,.hb.hb .zk-hg{min-width:0;padding-left:12px;border-left:1px solid var(--hb-line);align-self:stretch;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.hb.hb .zk-hs .badge{align-self:flex-start;white-space:nowrap}
+.hb.hb .zk-hs .note,.hb.hb .zk-hg .note{margin:0}
+.hb.hb .zk-hb{display:flex;flex-wrap:nowrap;align-items:center;justify-content:flex-end;gap:8px}
+.hb.hb .zk-hb .btn{white-space:nowrap}
+.hb.hb .zk-hr .zk-hb .btn{padding-inline:12px;font-size:14px;gap:6px}
+.hb.hb .zk-hr .zk-hb{flex-direction:column;align-items:stretch;gap:8px}.hb.hb .zk-hr .zk-hb .btn{justify-content:center}
+.hb.hb .zk-hp .zk-hb{justify-content:flex-start}
+@media (max-width:899px){
+.hb.hb .zk-h{--tx:35px}
+.hb.hb .zk-hp .zk-tile{width:40px;height:40px}
+.hb.hb .zk-h:has(> .zk-hc) > .zk-hp::after{top:54px}
+.hb.hb .zk-hp{grid-template-columns:auto minmax(0,1fr);padding:14px 40px 14px 14px;align-items:start}
+.hb.hb .zk-hp .zk-hb{grid-column:1 / -1}
+.hb.hb .zk-hh{white-space:normal}
+.hb.hb .zk-hc{--hx:18px}
+.hb.hb .zk-hc--in{--hx:16px}
+.hb.hb .zk-hr{grid-template-columns:minmax(0,1fr);gap:10px;padding:14px 0;height:auto}
+.hb.hb .zk-hcell,.hb.hb .zk-hb{grid-column:1 / -1}
+.hb.hb .zk-hcell .zk-hh,.hb.hb .zk-hr .zk-hn,.hb.hb .zk-hr .zk-hm{white-space:normal}
+.hb.hb .zk-hs,.hb.hb .zk-hg{padding-left:0;border-left:0;align-self:start}
+.hb.hb .zk-hm span + span{padding-left:0;border-left:0}
+.hb.hb .zk-hs,.hb.hb .zk-hg{flex-direction:column}
+.hb.hb .zk-hg{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:flex-start;gap:2px 10px}.hb.hb .zk-hs{justify-content:flex-start}}
+.hb.hb .zk-warn{display:inline-flex;align-items:flex-start;gap:6px;color:#9A4B00;font-size:var(--hb-fs-cap);line-height:18px}
+.hb.hb .zk-warn .ic{flex:none;margin-top:1px}
+.hb.hb .zk-mg{display:inline-flex;align-items:center;gap:6px}
+.hb.hb .zk-numc{display:inline-flex;align-items:center;gap:8px}
+.hb.hb .zk-ti{display:inline-flex;color:var(--hb-ink-3)}
+.hb.hb .zk-lnk{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.hb.hb .tbl .badge{white-space:nowrap}
+.hb.hb .tbl td .zk-warn,.hb.hb .tbl td .zk-ty{white-space:normal}
+.hb.hb .zk-acts .btn{max-width:190px;height:auto;min-height:var(--hb-h-s);white-space:normal;text-align:left;justify-content:flex-start}
+.hb.hb .tbl td{vertical-align:middle}
+.hb.hb .zk-acts{min-width:185px;display:flex;flex-direction:column;align-items:flex-start;gap:6px}
+.hb.hb .zk-card{display:flex;flex-direction:column;gap:8px}
+.hb.hb .zk-ch{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.hb.hb .zk-place,.hb.hb .zk-date{display:flex;align-items:center;gap:6px;margin:0}
+.hb.hb .zk-card .tbar{flex-direction:column;align-items:flex-start;gap:6px}
+.hb.hb .zk-subrow>td{background:var(--hb-sunken)}
+.hb.hb .zk-inner{margin:4px 0}
+.hb.hb .zk-3{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr) minmax(0,1fr);gap:16px}
+.hb.hb .zk-cty td:nth-child(1){min-width:200px}
+.hb.hb .zk-cty td:nth-child(3){min-width:150px}
+.hb.hb .zk-grid{overflow-x:auto}
+.hb.hb .zk-grid table{width:100%;table-layout:fixed}
+.hb.hb .zk-grid th,.hb.hb .zk-grid td{padding:8px 4px;font-size:13px;white-space:normal;text-align:center}
+.hb.hb .zk-grid th:first-child,.hb.hb .zk-grid td:first-child{text-align:left;width:34%}
+.hb.hb .zk-ask{display:inline-flex;align-items:flex-start;gap:6px;max-width:100%;padding:4px 10px;border:1px dashed #C9A24B;border-radius:12px;background:#FFF4D6;color:#7A5300;font:500 13px/18px "IBM Plex Sans",sans-serif}
+.hb.hb .zk-ask b{font-weight:600}
+.hb.hb .zk-ask .ic{flex:none;width:16px;height:16px;margin-top:1px}
+.hb.hb p.zk-ask{margin:0}
+.hb.hb .zk-ask--blk{display:flex;margin-top:4px}
+.hb.hb .zk-b6{grid-auto-columns:272px;padding-bottom:12px}
+.hb.hb .zk-b6 .board__col{overflow-wrap:normal;word-break:normal;hyphens:none}
+.hb.hb .zk-b6 .board__h span:first-child{white-space:nowrap}
+.hb.hb .tbl--stack td[data-label]:empty{display:none}
+.hb.hb .zk-bw{position:relative}
+.hb.hb .zk-bw::after{content:"";position:absolute;top:0;right:0;bottom:8px;width:64px;pointer-events:none;border-radius:0 var(--hb-r-l) var(--hb-r-l) 0;background:linear-gradient(90deg,transparent,var(--hb-paper))}
+.hb.hb .zk-b6::-webkit-scrollbar{height:10px}
+.hb.hb .zk-bh{display:flex;align-items:center;justify-content:flex-end;gap:6px;margin:0;text-align:right}.hb.hb .zk-bh .ic{flex:none;margin:0}
+@media (max-width:719px){.hb.hb .zk-fl2 .cs__btn,.hb.hb .zk-tools .cs__btn{font-size:14px;padding-inline:12px 8px}}
+.hb.hb .zk-lt th,.hb.hb .zk-lt td{padding:10px 6px;font-size:13px}
+.hb.hb .zk-lt th{font-size:12px;line-height:16px}
+.hb.hb .zk-lt td:nth-child(3){min-width:105px}
+.hb.hb .zk-lt td:nth-child(5){min-width:120px}
+.hb.hb .zk-lt .zk-ty{white-space:nowrap}
+.hb.hb .zk-lt .zk-warn{white-space:normal}
+.hb.hb .zk-lt td:last-child,.hb.hb .zk-lt th:last-child{min-width:214px;padding-right:12px}
+.hb.hb .zk-lt td:nth-child(6){white-space:normal}
+.hb.hb .zk-lt td:nth-child(5){min-width:108px}
+.hb.hb td.zk-nw,.hb.hb th.zk-nw{white-space:nowrap}
+.hb.hb .zk-tile--i{width:28px;height:28px;border-radius:9px}
+.hb.hb .zk-tile--i .ic{width:16px;height:16px}
+.hb.hb .zk-numc .zk-tile{margin-right:0}
+.hb.hb .zk-iconrow{display:flex;flex-wrap:nowrap;align-items:center;gap:6px}
+.hb.hb .zk-iconrow .btn{white-space:nowrap}
+.hb.hb .zk-iconrow .btn--icon{flex:none}
+.hb.hb .zk-b6 .panel--s{padding:12px}
+.hb.hb .zk-b6 .panel--s .h4{margin:0}
+.hb.hb .zk-b6 .panel--s p{margin:0}
+.hb.hb .zk-b6 .tbar{gap:6px;flex-wrap:wrap}
+.hb.hb .zk-b6 .btn{padding-inline:10px}
+.hb.hb .zk-ty{color:var(--hb-ink-3);font-size:var(--hb-fs-cap)}
+.hb.hb .zk-m{white-space:nowrap}
+.hb.hb .zk-row{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.hb.hb .zk-tools{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.hb.hb .zk-tools .kl-cs .cs{min-width:150px}
+.hb.hb .zk-tools .search{flex:1 1 260px;max-width:380px}
+.hb.hb .zk-seg button{gap:6px;min-height:var(--hb-h-m)}
+.hb.hb .btn.help-q{width:var(--hb-h-m);height:var(--hb-h-m);min-height:var(--hb-h-m);padding:0}
+.hb.hb .btn--round.x,.hb.hb .modal__head .btn--icon{width:var(--hb-h-m);height:var(--hb-h-m);min-height:var(--hb-h-m)}
+.hb.hb .cs__q input,.hb.hb .cs__q .input,.hb.hb input.cs__q{min-height:var(--hb-h-m);height:var(--hb-h-m)}
+.hb.hb .tabs__list a,.hb.hb .tabs__list button{min-height:var(--hb-h-m)}
+.hb.hb .zk-fl2 .select,.hb.hb .zk-fl2 .cs__btn,.hb.hb .zk-fl2 .btn{min-height:var(--hb-h-s);height:var(--hb-h-s)}
+@media (max-width:640px){.hb.hb .zk-seg{display:flex;width:100%;min-width:0}.hb.hb .zk-seg button{flex:1 1 0;min-width:0;padding-inline:8px;justify-content:center}}
+.hb.hb .tree summary .badge{flex:none}
+.hb.hb .zk-tree .tree > details > summary{min-height:48px}
+.hb.hb .zk-tree .tree summary > .zk-end,.hb.hb .zk-tree .tree .tree__leaf > .zk-end{margin-inline-start:auto;display:flex;flex-wrap:wrap;gap:6px}
+.hb.hb .zk-tree .tree small{margin-inline-start:0}
+.hb.hb .zk-lang{display:grid;gap:8px}
+.hb.hb .zk-lang .cs__list{max-height:220px;overflow:auto}
+.hb.hb .zk-lang .cs__pop{position:static;margin-top:6px;max-width:none}
+.hb.hb .zk-dec{display:flex;flex-wrap:nowrap;gap:8px;align-items:center;justify-content:flex-end}
+.hb.hb .zk-dec .btn{white-space:nowrap}
+.hb.hb .zk-dec--done{gap:12px}
+@media (max-width:719px){.hb.hb .phead__acts{flex-wrap:wrap;overflow:visible}.hb.hb .phead__acts .btn--acc{order:1;flex:1 1 0;min-width:0}.hb.hb .phead__acts .help-q{order:2}.hb.hb .phead__acts .btn:not(.btn--acc):not(.help-q){order:3;flex:1 1 100%;justify-content:center}}
+@media (max-width:719px){.hb.hb .zk-dec{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);width:100%}.hb.hb .zk-dec .btn{justify-content:center;padding-inline:8px}.hb.hb .zk-dec--done{display:flex;justify-content:space-between}}
+.hb.hb .zk-grid td,.hb.hb .zk-grid th{text-align:center}
+.hb.hb .zk-grid td:first-child,.hb.hb .zk-grid th:first-child{text-align:left}
+.hb.hb .zk-grid .is-hl{font-weight:600;color:var(--hb-ink)}
+.hb.hb .kl-modal--w{width:min(640px,calc(100% - 32px))}
+.hb.hb .zk-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hb.hb .zk-eq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.hb.hb .zk-2r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px;align-items:start}
+.hb.hb .zk-grid th,.hb.hb .zk-grid td{white-space:nowrap}
+.hb.hb .zk-2{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:16px}
+.hb.hb .zk-3>.panel,.hb.hb .zk-2>.panel{align-content:start}
+@media (max-width:1099px){.hb.hb .zk-eq,.hb.hb .zk-2r{grid-template-columns:minmax(0,1fr)}.hb.hb .zk-3,.hb.hb .zk-eq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.hb.hb .zk-2r{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:16px;align-items:start}
+.hb.hb .zk-grid th,.hb.hb .zk-grid td{white-space:nowrap}
+.hb.hb .zk-2{grid-template-columns:minmax(0,1fr)}.hb.hb .tabs__list{overflow-x:auto}}
+@media (max-width:899px){.hb.hb .zk-b6{grid-auto-columns:260px}.hb.hb .zk-tools .search{max-width:none}.hb.hb .zk-tools .kl-cs{flex:1 1 150px}}
+/* круг 4: без переносов внутри слов, телефонов, дат, имён */
+.hb.hb .tbl td,.hb.hb .tbl th{overflow-wrap:normal;word-break:normal;hyphens:none}
+.hb.hb .tbl th{white-space:nowrap;text-align:left}
+.hb.hb .zk-nw,.hb.hb .zk-lnk,.hb.hb .zk-lnk b,.hb.hb .zk-ty,.hb.hb .zk-mg > span,.hb.hb .tbl td .zk-ty,.hb.hb .zk-hg .zk-mg > span{white-space:nowrap}
+.hb.hb .zk-lt td,.hb.hb .zk-lt th{padding-inline:4px}
+.hb.hb .zk-lt .zk-iconrow{gap:2px}
+.hb.hb .zk-lt .zk-numc{gap:6px}.hb.hb .zk-lt .zk-tile--i{width:24px;height:24px}.hb.hb .zk-lt .zk-mg{gap:4px}
+.hb.hb .zk-lt .zk-iconrow .btn:not(.btn--icon){padding-inline:8px;gap:4px}
+.hb.hb .zk-lt .zk-acts,.hb.hb .zk-lt .zk-iconrow{min-width:0}
+.hb.hb .zk-lt .zk-warn,.hb.hb .zk-lt .zk-warn span{white-space:nowrap}
+/* фильтры: ряд поиска и сетка из 4 колонок */
+.hb.hb .zk-fl{display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+.hb.hb .zk-fl1{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.hb.hb .zk-fl1 .search{flex:1 1 280px;min-width:0;max-width:none}
+.hb.hb .zk-fl1 .check{margin-left:auto}
+.hb.hb .zk-fl2{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.hb.hb .zk-fl2 .kl-cs .cs{min-width:0;width:100%}
+.hb.hb .zk-fl2 .btn{width:100%;justify-content:center}
+@media (max-width:899px){.hb.hb .zk-fl2{grid-template-columns:repeat(2,minmax(0,1fr))}.hb.hb .zk-fl1 .check{margin-left:0}}
+/* блок «Ждёт ответов» */
+.hb.hb .zk-asks{display:grid;gap:6px;padding:10px 14px;border:1px dashed #C9A24B;border-radius:12px;background:#FFF4D6;color:#7A5300;font:500 13px/18px "IBM Plex Sans",sans-serif}
+.hb.hb .zk-asks b{font-weight:600}
+.hb.hb .zk-asks ul{margin:0;padding-left:20px;display:grid;gap:4px}
+/* окна: тело прокручивается, кнопка закреплена */
+.hb.hb .modal.zk-modal{display:flex;flex-direction:column;overflow:hidden;max-height:calc(100% - 32px)}
+.hb.hb .zk-mh{flex:none;padding:20px 22px 12px;border-bottom:1px solid var(--hb-line)}
+.hb.hb .zk-mb{flex:1 1 auto;min-height:0;overflow-y:auto;display:grid;align-content:start;gap:14px;padding:16px 22px}
+.hb.hb .zk-mf{flex:none;display:grid;gap:8px;padding:14px 22px 18px;border-top:1px solid var(--hb-line);background:var(--hb-paper)}
+.hb.hb .zk-mf .contact{flex-wrap:nowrap}
+.hb.hb .zk-mf .field__err{margin:0}
+.hb.hb .hb-kab-ovl{max-width:none !important;width:auto !important;margin:0 !important;inset:0 !important}
+.hb.hb.zk-clip .kab{height:900px;max-height:900px;overflow:hidden}
+@media (max-width:899px){.hb.hb .modal.zk-modal{max-height:calc(100% - 24px)}.hb.hb .zk-mh{padding:16px 16px 10px}.hb.hb .zk-mb{padding:14px 16px}.hb.hb .zk-mf{padding:12px 16px 16px}.hb.hb .zk-mf .contact{flex-wrap:wrap}.hb.hb.zk-clip .kab{height:844px;max-height:844px}}
+/* подробнее */
+.hb.hb .zk-kv2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;align-items:stretch}
+.hb.hb .zk-kv2 > div{flex-wrap:nowrap}
+.hb.hb .zk-kv2 dt{white-space:nowrap}
+.hb.hb .zk-kv2 > div.zk-full{grid-column:1 / -1}
+.hb.hb .zk-kv2 > div:nth-child(2){border-top:0}
+.hb.hb .zk-kv2 > div:nth-child(n+3){border-top:1px solid var(--hb-line)}
+@media (max-width:640px){.hb.hb .sstrip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.hb.hb .sstrip > div{min-width:0;border-left:0;border-top:1px solid var(--hb-line)}.hb.hb .sstrip > div:nth-child(-n+2){border-top:0}.hb.hb .sstrip b,.hb.hb .sstrip span{white-space:nowrap}.hb.hb .tbar__end.zk-row{width:100%}.hb.hb .tbar__end.zk-row .btn{flex:1 1 100%;justify-content:center}.hb.hb .zk-kv2 > div{flex-wrap:wrap}}
+@media (max-width:899px){.hb.hb .zk-kv2{grid-template-columns:minmax(0,1fr)}.hb.hb .zk-kv2 > div:nth-child(n+2){border-top:1px solid var(--hb-line)}}
+.hb.hb .zk-grid th,.hb.hb .zk-grid td{white-space:nowrap;padding:8px 6px}
+.hb.hb .zk-grid table{table-layout:fixed;width:100%}
+.hb.hb .zk-grid col.zk-c0{width:38%}
+.hb.hb .zk-grid th,.hb.hb .zk-grid td{text-align:center;white-space:nowrap;padding:8px 16px;vertical-align:middle}
+.hb.hb .zk-grid th:first-child,.hb.hb .zk-grid td:first-child{text-align:left;padding-left:12px}
+.hb.hb .zk-grid .is-hl td{font-weight:600}
+.hb.hb .zk-grid .note,.hb.hb .zk-gm .zk-no{font-weight:400;color:var(--hb-ink-3)}
+.hb.hb .zk-gm td b{font-weight:600}
+.hb.hb .zk-comm{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:20px 32px;align-items:start}
+.hb.hb .zk-comm > div{display:grid;gap:12px;align-content:start}
+@media (max-width:1099px){.hb.hb .zk-comm{grid-template-columns:minmax(0,1fr)}}
+.hb.hb .zk-steps{margin-top:2px}
+.hb.hb .zk-pg{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+/* круг 6 */
+/* переключатель видов: внутренний отступ у всех сегментов одинаковый, вложенный span без своего отступа кита */
+html .hb.hb .seg.zk-seg:not(.pt-seg-w) > button{flex:0 0 auto;gap:8px;padding:0 14px;min-height:var(--hb-h-m);justify-content:center}
+html .hb.hb .seg.zk-seg:not(.pt-seg-w) > button > span{padding:0;min-height:0;line-height:20px;display:inline}
+@media (max-width:640px){html .hb.hb .seg.zk-seg:not(.pt-seg-w) > button{flex:1 1 auto;min-width:0;padding:0 8px}}
+/* статус: строка 1 - бейдж (и «На рассмотрении»), строка 2 - метка или причина отказа в одну строку; высота всегда одна */
+.hb.hb .zk-st{display:grid;gap:4px;justify-items:start;align-content:center;min-width:0}
+.hb.hb .zk-st1,.hb.hb .zk-st2{display:flex;flex-wrap:nowrap;align-items:center;gap:6px;min-width:0;max-width:100%;height:24px}
+.hb.hb .zk-st2:empty{display:none}
+.hb.hb .zk-st2 .zk-why{min-width:0;max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:var(--hb-fs-cap);line-height:20px;color:var(--hb-ink-3)}
+.hb.hb .zk-hs .zk-st2 .zk-why{max-width:216px}
+/* строки таблиц: одна высота, ячейки по центру */
+@media (min-width:640px){
+.hb.hb .tbl tbody tr:not(.zk-subrow){height:72px}
+.hb.hb .zk-ko tbody tr:not(.zk-subrow){height:56px}
+.hb.hb .zk-ko .zk-inner tbody tr:not(.zk-subrow){height:72px}
+.hb.hb .zk-gm tbody tr,.hb.hb .zk-grid tbody tr{height:auto}
+}
+.hb.hb .tbl :is(td,th){vertical-align:middle}
+.hb.hb .tbl thead th{vertical-align:middle}
+.hb.hb .zk-lv{display:flex;align-items:center;gap:8px;min-width:0}
+.hb.hb .zk-lv--1{padding-left:24px}
+.hb.hb .zk-sl{flex:none;display:grid;place-items:center;width:24px;height:24px;color:var(--hb-ink-3)}
+.hb.hb .zk-lv .zk-tx{display:block;min-width:0;white-space:nowrap}
+.hb.hb .zk-more{flex:none}
+.hb.hb .zk-cty,.hb.hb .zk-inner table{table-layout:fixed}
+.hb.hb .zk-inner table{width:100%}
+/* кнопки карточек на телефоне: одна высота 48, одни отступы, без переносов */
+.hb.hb .zk-bm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;width:100%}
+.hb.hb .zk-bm .btn{margin:0;width:100%;min-width:0;height:48px;min-height:48px;padding:0 12px;justify-content:center;white-space:nowrap;text-align:center}
+.hb.hb .zk-bm .btn > span{white-space:nowrap}
+.hb.hb .zk-bm .zk-bw1{grid-column:1 / -1}
+.hb.hb .zk-bm--b{grid-template-columns:minmax(0,1fr) 48px}
+.hb.hb .zk-bm--b .btn--icon{width:48px;padding:0}
+.hb.hb .zk-bm--c{grid-template-columns:minmax(0,1fr)}
+.hb.hb .tbl .zk-mg{display:flex}
+.hb.hb .zk-inner .zk-acts{min-width:0}
+.hb.hb .tbl .zk-warn{display:flex;align-items:center}
+.hb.hb .zk-whyc{display:none;align-items:center;gap:4px}
+@media (min-width:640px){.hb.hb .tbl .zk-whyc{display:inline-flex}.hb.hb .tbl .zk-whyf{display:none}}
+@media (min-width:900px){.hb.hb .zk-hs .zk-whyc{display:inline-flex}.hb.hb .zk-hs .zk-whyf{display:none}}
+.hb.hb .zk-chips{display:flex;flex-wrap:nowrap;align-items:center;gap:6px}
+@media (max-width:639px){.hb.hb .zk-chips{flex-wrap:wrap}}
+.hb.hb .zk-hb--m{display:block}
+@media (max-width:639px){
+.hb.hb .zk-st2:empty,.hb.hb .zk-st2:not(:has(*)){display:none}
+.hb.hb .zk-st2{height:auto}
+.hb.hb .zk-st2 .zk-why,.hb.hb .zk-hs .zk-st2 .zk-why{max-width:none;white-space:normal;overflow:visible;text-overflow:clip}
+.hb.hb .tbl--stack .zk-lv--1{padding-left:0}
+.hb.hb .tbl--stack td{height:auto}
+}
+@media (max-width:899px){
+.hb.hb .zk-hs .zk-st2{height:auto}
+.hb.hb .zk-hs .zk-st2 .zk-why{max-width:none;white-space:normal;overflow:visible;text-overflow:clip}
+}
+
+
+/* строки, скрытые поиском и фильтрами */
+.zk-hide{display:none !important}

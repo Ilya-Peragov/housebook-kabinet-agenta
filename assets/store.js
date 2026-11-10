@@ -117,7 +117,7 @@
     { id: 'telegram', req: false, skip: 'telegram', t: 'Подключите Telegram-бота', href: 'profil.html', btn: 'Подключить Telegram', d: 'Статусы клиентов будут приходить в мессенджер. Это необязательно.', chips: ['QR-код', '1 нажатие'], why: 'Уведомления о клиентах придут сразу в Telegram', ic: 'send' },
     { id: 'tour', req: false, skip: 'tour', t: 'Пройдите тур по кабинету', act: 'tour', btn: 'Смотреть тур', d: 'Короткое видео: где лежат клиенты, деньги и контент. Это необязательно.', chips: ['5 минут', 'Видео'], why: 'Покажем, где что лежит, за 5 минут', ic: 'play' },
     { id: 'invite', req: false, skip: 'invite', t: 'Пригласите коллегу', href: 'moya-set.html', btn: 'Пригласить агента', d: 'Коллега, которого Вы пригласили, встанет в Вашу сеть. Это необязательно.', chips: ['Ссылка или QR', 'Почта коллеги'], why: 'Часть дохода с его сделок будет идти Вам', ic: 'users' },
-    { id: 'client', req: true, t: 'Передайте первого клиента', href: 'klienty-forma.html', btn: 'Передать клиента', d: 'Остальное сделает локальный партнёр.', chips: ['Имя клиента', 'Телефон', 'Страна', 'Бюджет'], why: 'Клиент закрепится за Вами на 30 дней', ic: 'send' }
+    { id: 'client', req: true, t: 'Передайте первого клиента', href: 'zayavki.html?m=peredat', btn: 'Передать клиента', d: 'Остальное сделает локальный партнёр.', chips: ['Имя клиента', 'Телефон', 'Страна', 'Бюджет'], why: 'Клиент закрепится за Вами на 30 дней', ic: 'send' }
   ];
   HB.onb = {
     facts: function () {
@@ -245,7 +245,7 @@
     var out = [];
     HB.clientsAll().forEach(function (c) {
       if (!c || !c.ts) return;
-      out.push({ ts: c.ts || 0, t: (c.cold ? 'Вы передали контакт ' : 'Вы передали клиента ') + c.name, s: c.seek || '', href: 'klienty-kartochka.dc.html', cid: c.id });
+      out.push({ ts: c.ts || 0, t: (c.cold ? 'Вы передали контакт ' : 'Вы передали клиента ') + c.name, s: c.seek || '', href: 'zayavki-klient.dc.html', cid: c.id });
     });
     (store.get('facts.invited') || []).forEach(function (x) {
       out.push({ ts: x.ts || 0, t: 'Вы пригласили коллегу ' + x.name, s: x.mail, href: 'moya-set.dc.html', cid: '' });
